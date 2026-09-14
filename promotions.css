@@ -1,0 +1,242 @@
+@font-face {
+  font-family: "Marggraff Kursiv Zarte";
+  src: url("assets/fonts/Marggraff%20Kursiv%20Zarte.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Only the two requested promotional blocks. Coordinates follow the 1920px Figma canvas. */
+.winter-promo-script {
+  left: 116px;
+  top: 91px;
+  width: 815px;
+  margin: 0;
+  padding: 0;
+  font-family: "Marggraff Kursiv Zarte", "Times New Roman", Georgia, serif;
+  font-size: 110px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 2.2px;
+  color: #823600;
+  background: linear-gradient(180deg, #ffa800 0%, #823600 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.winter-promo-script span { white-space: nowrap; }
+.winter-promo-script::before {
+  content: "";
+  position: absolute;
+  inset: -18px 25px -16px -36px;
+  border: 2px solid #efb66b;
+  border-right: 0;
+  border-radius: 65px 0 0 65px;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 62%, transparent 100%);
+}
+.winter-promo-title { left: 82px; top: 396px; font-size: 96px; line-height: .95; font-weight: 400; letter-spacing: -1.92px; }
+.winter-agency-badge { top: 780px; width: 510px; height: 190px; padding: 46px 25px 34px 124px; }
+.winter-agency-badge img { left: 38px; top: 65px; width: 66px; height: 66px; }
+.winter-agency-badge strong { font-size: 29px; line-height: 1.2; font-weight: 400; }
+.winter-info-card { top: 985px; height: 334px; padding: 120px 34px 28px; }
+.winter-info-card > img { left: 38px; top: 20px; width: 92px; height: 92px; }
+.winter-info-card strong { font-family: 'Monument Extended','Arial Black',Arial,sans-serif; font-size: 36px; line-height: 1.12; font-weight: 900; }
+.winter-info-card p { margin-top: 7px; font-size: 36px; line-height: 1.15; }
+.winter-tea-card { top: 928px; height: 372px; padding-top: 126px; padding-right: 405px; border-radius: 57px; background: transparent; box-shadow: none; isolation: isolate; }
+.winter-tea-card::before { content: ''; position: absolute; left: 5px; top: 0; width: 756px; height: 372px; border-radius: 57px; background: #44271a; z-index: -1; }
+.winter-tea-gift { top: 28px; width: 78px; height: 78px; }
+.winter-tea-card p { font-size: 50px; line-height: .96; }
+.winter-tea-card strong { font-size: 43px; font-weight: 400; margin-top: 22px; white-space: nowrap; }
+.winter-tea-photo-wrap { width: 410px; height: 410px; top: -24px; right: -10px; background: white; }
+.winter-tea-photo-wrap img { width: 96%; height: 96%; }
+.winter-ski-card { left: 83px; width: 1661px; height: 471px; bottom: 33px; grid-template-columns: 1020px 641px; border-radius: 57px; }
+.winter-ski-main { display: block; padding: 0; }
+.winter-ski-main > div { display: contents; }
+.winter-ski-main > img { position: absolute; left: 75px; top: 46px; width: 270px; height: 135px; margin: 0; }
+.winter-ski-main p { position: absolute; left: 390px; top: 60px; font-size: 47px; line-height: 1.15; }
+.winter-ski-main strong { position: absolute; left: 54px; top: 196px; font-size: 82px; line-height: 1; font-weight: 400; letter-spacing: 1px; margin: 0; }
+.winter-ski-main span { position: absolute; left: 54px; top: 301px; font-size: 48px; line-height: 1.12; margin: 0; }
+.winter-ski-location { display: flex; flex-direction: column; justify-content: center; gap: 25px; padding: 34px 40px; margin-block: 56px; }
+.winter-ski-location img { width: 130px; height: 130px; object-fit: contain; filter: brightness(0) saturate(100%) invert(49%) sepia(93%) saturate(1929%) hue-rotate(358deg) brightness(99%) contrast(103%); }
+.winter-ski-location p { width: 100%; font-size: 48px; line-height: 1.13; }
+.partners-promo { background: linear-gradient(#fffdf9 0 1920px, #ffefe8 1920px); }
+.partners-promo::before, .partners-promo::after { background: url('assets/berry-decor.webp') center / contain repeat-y; border-radius: 0; filter: blur(12px); opacity: .48; }
+.partners-promo::before { left: -200px; top: 80px; width: 330px; height: 1770px; }
+.partners-promo::after { right: -140px; top: 1130px; width: 430px; height: 790px; transform: rotate(12deg); }
+.partners-logo-mini { left: 105px; top: 90px; gap: 0; }
+.partners-logo-mini b { font-family: 'Graphik LCG','Arial Black',Arial,sans-serif; font-size: 45px; font-weight: 700; }
+.partners-logo-mini small { font-family: 'Graphik LCG',Arial,sans-serif; font-size: 18px; letter-spacing: 0; text-transform: lowercase; margin: 2px 0 0 10px; }
+.partners-logo-mini img { width: 109px; height: 94px; }
+.partners-copy { left: 112px; top: 295px; width: 870px; }
+.partners-kicker-row { gap: 42px; }
+.partners-kicker-row span { font-size: 48px; letter-spacing: -.96px; }
+.partners-copy h2,.partners-copy h3 { font-family: 'Monument Extended','Arial Black',Arial,sans-serif; font-weight: 900; }
+.partners-copy h2 { font-size: 128px; line-height: .98; letter-spacing: -2.56px; }
+.partners-rule { display: flex; align-items: center; justify-content: center; width: 855px; height: 2px; margin: 23px 0 18px; background: #e6b483; }
+.partners-rule::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: #df7a24; box-shadow: 0 0 0 15px #fffdf9; }
+.partners-copy h3 { margin-top: 0; font-size: 110px; letter-spacing: -2.2px; line-height: .98; }
+.partners-coop { font-size: 70px; letter-spacing: -1.4px; margin-top: 13px; }
+.partners-for { font-size: 32px; line-height: 1.16; margin-top: 25px; }
+.partners-visual { position: absolute; inset: 0 auto auto 0; width: 1920px; height: 1250px; pointer-events: none; }
+.partners-photo-stack { right: -280px; width: 1094px; height: 1210px; overflow: visible; }
+.partners-photo { object-fit: contain; clip-path: none; }
+.partners-photo-exterior { right: 0; top: 0; width: 972px; height: 770px; }
+.partners-photo-room { right: 0; top: 480px; bottom: auto; width: 1094px; height: 728px; filter: drop-shadow(0 -9px 0 #fffdf9); }
+.partners-how { left: 83px; top: 891px; width: 811px; height: 121px; }
+.partners-steps { left: 129px; top: 1108px; width: 1416px; grid-template-columns: repeat(3,430px); gap: 63px; }
+.partner-step { height: 400px; padding: 110px 26px 25px; border-width: 4px; border-radius: 48px; background: #fffdf9; }
+.partner-step > img { top: -85px; background: #fffdf9; border-radius: 50%; box-shadow: 0 0 0 10px #fffdf9; }
+.partner-step:nth-child(1) > img { width: 167px; height: 175px; }
+.partner-step:nth-child(2) > img { width: 167px; height: 163px; }
+.partner-step:nth-child(3) > img { width: 166px; height: 162px; }
+.partner-step h4 { font-family: 'Coolvetica','Arial Narrow',Arial,sans-serif; font-size: 36px; line-height: .98; font-weight: 700; letter-spacing: .72px; }
+.partner-step:first-child h4 { font-size: 40px; letter-spacing: .8px; }
+.partner-step p { width: 323px; margin: 16px 0 0 28px; font-family: 'Pier Sans','Arial Narrow',Arial,sans-serif; font-size: 30px; line-height: 30px; font-weight: 400; letter-spacing: -1.5px; }
+.partner-step:nth-child(3) p { width: 340px; }
+.partners-discount { right: 38px; top: 890px; width: 430px; height: 430px; border: 10px solid #fffdf9; background: url('assets/homepage-extra/discount-circle.png') center / cover no-repeat; box-shadow: none; }
+.partners-discount span { font-size: 35px; line-height: 1.16; }
+.partners-discount strong { font-family: 'Monument Extended','Arial Black',Arial,sans-serif; font-size: 110px; line-height: 1; letter-spacing: 2.2px; margin-top: 6px; font-weight: 900; }
+.partners-discount small { font-size: 32px; margin-top: 2px; }
+.partners-benefit-heading { left: 198px; top: 1544px; width: 1529px; gap: 36px; }
+.partners-benefit-heading h3 { font-family: 'Coolvetica','Arial Narrow',Arial,sans-serif; font-size: 50px; font-weight: 400; letter-spacing: 1px; }
+.partners-benefits { left: 250px; top: 1601px; width: 1410px; grid-template-columns: 468px 522px 420px; gap: 0; }
+.partners-benefit { grid-template-columns: 145px 1fr; gap: 10px; padding: 0; min-height: 146px; }
+.partners-benefit:first-child { padding-left: 0; }
+.partners-benefit:nth-child(1) img { width: 145px; height: 146px; }
+.partners-benefit:nth-child(2) img { width: 137px; height: 138px; }
+.partners-benefit:nth-child(3) img { width: 139px; height: 140px; }
+.partners-benefit strong { font-family: 'Coolvetica','Arial Narrow',Arial,sans-serif; font-size: 24px; font-weight: 400; letter-spacing: .48px; }
+.partners-benefit span { font-size: 22px; line-height: 1.1; letter-spacing: -.44px; }
+.partners-phone { left: 366px; top: 1763px; bottom: auto; width: 1188px; height: 82px; border-radius: 13px; font-size: 48px; font-weight: 400; letter-spacing: -.96px; background: #512e18; justify-content: flex-end; padding-right: 70px; }
+.partners-phone::before { content: ''; position: absolute; left: 550px; top: 15px; bottom: 15px; width: 2px; background: #a17956; }
+.partners-phone:focus-visible { outline: 5px solid #fd7702; outline-offset: 7px; }
+.partners-berries-left { left: -85px; top: 1490px; bottom: auto; width: 285px; height: 390px; }
+.partners-berries-right { right: -40px; top: 1060px; bottom: auto; width: 350px; height: 470px; }
+
+/* The original content reflows without removing imagery or changing copy. */
+@media (max-width:1100px) {
+  .winter-promo { padding: 26px 20px 32px !important; gap: 18px; }
+  .winter-promo-script {
+    width: 300px !important;
+    max-width: 100% !important;
+    margin: 8px 0 20px;
+    padding: 0;
+    font-size: clamp(44px, 13vw, 64px);
+    letter-spacing: 1.2px;
+  }
+  .winter-promo-script::before { inset: -10px 0 -9px -14px; border-radius: 38px 0 0 38px; }
+  .winter-promo-title { font-size: clamp(43px, 8vw, 70px) !important; font-weight: 400; line-height: .95 !important; letter-spacing: -1.4px !important; }
+  .winter-promo-photo { right: -28% !important; width: 116% !important; height: 570px !important; opacity: 1; }
+  .winter-promo-fade { background: linear-gradient(90deg,#fff5eb 0%,#fff5ebee 30%,#fff5eb88 63%,#fff5eb22),linear-gradient(transparent 280px,#fff5eb 580px) !important; }
+  .winter-agency-badge { width: 280px !important; max-width: 100%; min-height: 104px; padding: 30px 16px 22px 66px !important; border-radius: 0 !important; }
+  .winter-agency-badge img { position: absolute; left: 22px; top: 36px; width: 36px !important; height: 36px !important; }
+  .winter-agency-badge strong { font-size: 16px !important; font-weight: 400; line-height: 1.2; }
+  .winter-info-card { padding: 66px 20px 20px !important; min-height: 190px !important; background: #fff6edcc; }
+  .winter-info-card > img { top: 16px !important; left: 20px !important; width: 44px !important; height: 44px !important; }
+  .winter-info-card strong { font-size: 19px !important; line-height: 1.2 !important; }
+  .winter-info-card p { font-size: 17px !important; line-height: 1.3 !important; margin-top: 7px !important; }
+  .winter-tea-card { padding: 72px 20px 26px !important; min-height: 220px !important; border-radius: 26px !important; margin-top: 20px; background: #432619; }
+  .winter-tea-card::before { display: none; }
+  .winter-tea-gift { width: 44px !important; height: 44px !important; left: 22px !important; top: 19px !important; }
+  .winter-tea-card p { margin: 0 !important; font-size: 23px !important; line-height: 1.12 !important; width: 60%; }
+  .winter-tea-card strong { font-size: clamp(15px,4.3vw,22px) !important; margin-top: 22px; white-space: normal; }
+  .winter-tea-photo-wrap { width: clamp(110px,32vw,138px) !important; height: clamp(110px,32vw,138px) !important; right: -8px !important; top: -18px !important; }
+  .winter-ski-card { display: block !important; padding: 22px !important; border-radius: 26px !important; }
+  .winter-ski-main { display: grid !important; grid-template-columns: 85px 1fr !important; padding: 0 !important; gap: 14px !important; }
+  .winter-ski-main > img { position: static; width: 85px !important; height: 60px !important; }
+  .winter-ski-main p { position: static; font-size: 16px !important; line-height: 1.2; margin: 0; align-self: center; }
+  .winter-ski-main strong { position: static; grid-column: 1/-1; font-size: clamp(24px,6.7vw,40px) !important; letter-spacing: 0; line-height: 1.05; margin: 0; }
+  .winter-ski-main span { position: static; grid-column: 1/-1; font-size: 17px !important; line-height: 1.3 !important; margin: 0 !important; }
+  .winter-ski-main span br { display: none; }
+  .winter-ski-location { flex-direction: row; justify-content: flex-start; gap: 18px; margin: 22px 0 0; padding: 18px 0 0 !important; }
+  .winter-ski-location img { width: 40px !important; height: 50px !important; flex: 0 0 40px; }
+  .winter-ski-location p { font-size: 16px !important; }
+  .winter-ski-location p br { display: none; }
+  .partners-promo { padding: 35px 20px 46px !important; gap: 22px; background: #fffdf9; }
+  .partners-logo-mini { gap: 0 !important; }
+  .partners-logo-mini small { font-size: 9px !important; }
+  .partners-logo-mini img { width: 58px !important; }
+  .partners-kicker-row { gap: 14px !important; }
+  .partners-kicker-row span { font-size: clamp(14px,3.5vw,21px) !important; white-space: nowrap; }
+  .partners-kicker-row img { width: 80px !important; }
+  .partners-copy h2 { font-size: clamp(34px,9.8vw,88px) !important; line-height: 1 !important; letter-spacing: -1px !important; margin-top: 8px; }
+  .partners-rule { margin: 15px 0 16px; }
+  .partners-rule::after { width: 5px; height: 5px; box-shadow: 0 0 0 6px #fffdf9; }
+  .partners-copy h3 { font-size: clamp(30px,8.6vw,73px) !important; letter-spacing: -.8px !important; line-height: 1; }
+  .partners-coop { font-size: clamp(22px,6.05vw,49px) !important; margin-top: 8px; }
+  .partners-for { font-size: 16px !important; line-height: 1.4 !important; }
+  .partners-for br { display: none; }
+  .partners-visual { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1.03; }
+  .partners-photo-stack { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; margin: 0; }
+  .partners-photo-exterior { width: 83% !important; height: auto !important; top: 0; right: 0; }
+  .partners-photo-room { width: 100% !important; height: auto !important; top: 34%; right: 0; bottom: auto; filter: drop-shadow(0 -3px 0 #fffdf9); }
+  .partners-visual .partners-discount { position: absolute !important; inset: auto -8px -4px auto !important; width: 43% !important; height: auto !important; min-width: 133px; max-width: 220px; aspect-ratio: 1; padding: 12px; border-width: 4px; margin: 0; }
+  .partners-discount span { font-size: clamp(12px,3.1vw,19px) !important; line-height: 1.13; }
+  .partners-discount strong { font-size: clamp(45px,12.4vw,74px) !important; line-height: 1; letter-spacing: -2px; margin-top: 4px; }
+  .partners-discount small { font-size: clamp(11px,2.9vw,16px) !important; margin-top: 4px; white-space: nowrap; }
+  .partners-how { width: 100% !important; max-width: 100%; margin-top: 16px; }
+  .partners-steps { gap: 62px !important; padding-top: 45px; }
+  .partner-step { padding: 66px 24px 26px !important; border-radius: 26px !important; }
+  .partner-step > img { width: 96px !important; height: 96px !important; top: -48px !important; box-shadow: 0 0 0 8px #fffdf9; }
+  .partner-step h4,.partner-step:first-child h4 { font-size: 21px !important; line-height: 1.12; letter-spacing: 0; }
+  .partner-step p,.partner-step:nth-child(3) p { width: auto; margin: 14px 0 0; font-size: 17px !important; line-height: 1.4 !important; letter-spacing: 0; }
+  .figma-line-break { display: none; }
+  .partners-benefit-heading { gap: 12px !important; margin-top: 12px; grid-template-columns: 1fr auto 1fr !important; }
+  .partners-benefit-heading h3 { font-size: clamp(15px,4.1vw,28px) !important; letter-spacing: -.4px; white-space: nowrap; }
+  .partners-benefits { gap: 8px !important; }
+  .partners-benefit { grid-template-columns: 65px 1fr !important; gap: 18px; padding: 14px 0 !important; }
+  .partners-benefit img { width: 65px !important; height: 65px !important; }
+  .partners-benefit strong { font-size: 16px !important; }
+  .partners-benefit span { font-size: 15px !important; line-height: 1.25 !important; }
+  .partners-phone { padding: 15px !important; min-height: 54px; font-size: 24px !important; justify-content: center; border-radius: 10px; }
+  .partners-phone::before { display: none; }
+}
+@media (min-width:650px) and (max-width:1100px) {
+  .winter-promo { padding: 40px !important; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+  .winter-promo-script, .winter-promo-title, .winter-agency-badge { grid-column: 1/-1; }
+  .winter-info-card, .winter-tea-card { align-self: stretch; margin-top: 15px; }
+  .winter-tea-card { min-height: 260px !important; }
+  .winter-tea-card p { font-size: 25px !important; }
+  .winter-tea-card strong { font-size: 19px !important; }
+  .winter-ski-card { grid-column: 1/-1; }
+  .winter-ski-main { grid-template-columns: 150px 1fr !important; }
+  .winter-ski-main > img { width: 130px !important; height: 90px !important; }
+  .winter-ski-main p { font-size: 24px !important; }
+  .winter-ski-main strong { font-size: 44px !important; }
+  .winter-ski-main span { font-size: 24px !important; }
+  .partners-promo { padding: 45px 40px !important; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+  .partners-logo-mini, .partners-copy, .partners-how, .partners-steps, .partners-benefit-heading, .partners-benefits, .partners-phone { grid-column: 1/-1; }
+  .partners-visual { grid-column: 1/-1; max-width: 650px; justify-self: center; }
+  .partners-discount span { font-size: 18px !important; }
+  .partners-discount strong { font-size: 74px !important; }
+  .partners-discount small { font-size: 16px !important; }
+  .partners-how { max-width: 510px !important; }
+  .partners-steps { grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: 18px !important; }
+  .partner-step { padding: 65px 15px 24px !important; }
+  .partner-step h4 { font-size: 17px !important; line-height: 1.2; }
+  .partner-step p { font-size: 16px !important; }
+  .partners-benefits { grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: 22px !important; }
+  .partners-benefit { display: flex; flex-direction: column; align-items: flex-start; border: 0; }
+}
+
+/* Independent decorative sprigs have varied angles, instead of a repeated strip. */
+.partners-promo::before, .partners-promo::after { display: none; }
+.partners-background-berries { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.partners-background-berries img { position: absolute; width: 280px; height: 360px; object-fit: contain; filter: blur(12px); opacity: .4; }
+.partners-background-berries img:nth-child(1) { left: -190px; top: 70px; transform: rotate(-28deg); }
+.partners-background-berries img:nth-child(2) { left: -210px; top: 510px; transform: rotate(42deg); }
+.partners-background-berries img:nth-child(3) { left: -185px; top: 1000px; transform: rotate(155deg); }
+.partners-background-berries img:nth-child(4) { right: -160px; top: 1350px; transform: rotate(-65deg); }
+.partners-background-berries img:nth-child(5) { right: -130px; top: 1640px; transform: rotate(24deg); }
+.partners-berries-left { transform: rotate(-32deg); }
+.partners-berries-right { transform: rotate(37deg); }
+.partners-phone { display: grid; grid-template-columns: 550px 1fr; padding: 0; text-align: center; align-items: center; }
+.partners-phone-label { font-size: 40px; }
+@media (max-width: 1100px) {
+  .partners-background-berries { display: none; }
+  .partners-phone { display: flex; flex-direction: column; gap: 8px; padding: 15px !important; }
+  .partners-phone-label { font-size: 18px; }
+}

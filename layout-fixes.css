@@ -1,0 +1,142 @@
+/* Shared responsive corrections. Keep this after each page's existing styles. */
+html { scrollbar-gutter: stable; scroll-behavior: auto; }
+body { min-width: 0; }
+.page-design, .page-design article, .page-design .room-info,
+.page-design .room-info li, .page-design .room-info li span { min-width: 0; }
+.page-design .room-info h2, .page-design .room-info li span,
+.service-content h1, .service-content h2, .service-content p { overflow-wrap: break-word; }
+.page-design .closing-area .footer-brand {
+  width: 280px;
+  max-width: 100%;
+  grid-template-columns: minmax(0, 210px) 70px;
+}
+.page-design .closing-area .footer-brand strong,
+.page-design .closing-area .footer-brand small { min-width: 0; }
+.page-design .closing-area .footer-brand img { max-width: 100%; }
+
+@media (max-width: 1439px) {
+  /* Use the homepage dropdown treatment on every page, preserving each link list. */
+  .page-design .header { --internal-header: 76px; padding: 8px clamp(20px, 4vw, 56px); }
+  .page-design .header .menu-toggle {
+    display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px;
+    padding: 0; border: 1px solid #572e1140; border-radius: 50%;
+    background: transparent; color: #572e11; font: 26px/1 Arial;
+  }
+  .page-design .header-menu {
+    position: fixed; inset: var(--internal-header) 0 auto;
+    display: block; max-height: calc(100dvh - var(--internal-header)); overflow-y: auto;
+    padding: 12px clamp(20px, 4vw, 56px) 20px; background: #fff4ea;
+    box-shadow: 0 16px 24px #24150d20;
+    opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  .page-design .menu-open .header-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+  .page-design .header .inner-nav { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .page-design .header .inner-nav a {
+    display: flex; align-items: center; min-height: 48px; padding: 10px 12px;
+    border-radius: 12px; font-size: 17px; line-height: 1.3; letter-spacing: 0;
+    font-family: 'Monument Extended','Arial Black',Arial,sans-serif; white-space: normal;
+  }
+  .page-design .header .inner-nav a:hover, .page-design .header .inner-nav a.active { color: #c74600; background: #fd770215; }
+  .page-design .header .inner-nav a::after { content: none; }
+  .page-design .header .header-socials { margin: 0; padding: 12px; gap: 12px; justify-content: flex-start; }
+  .page-design .header .header-socials .social-icon { width: 44px; height: 44px; }
+  #design .footer-brand { width: 220px; grid-template-columns: 160px 60px; }
+  #design .benefit b { overflow-wrap: break-word; }
+  .reviews-2gis-pill { flex-shrink: 0; }
+  .reviews-2gis-pill strong { flex-shrink: 0; }
+  #design .reviews-2gis-block { grid-template-columns: minmax(190px, 1.4fr) minmax(0, 1fr); }
+  /* Reveal vertically: horizontal offsets could leave narrow room cards. */
+  .page-design .room-card.motion-card .room-photo,
+  .page-design .room-card.motion-card .room-info { transform: translateY(12px); }
+  .page-design .room-card.motion-card.is-visible .room-photo,
+  .page-design .room-card.motion-card.is-visible .room-info { transform: none; }
+  .page-design .room-card.motion-card.is-visible .room-info li { animation: none; }
+}
+@media (max-width: 649px) {
+  .page-design { --internal-header: 72px; }
+  .page-design .header { --internal-header: 72px; padding-inline: 20px; }
+  .page-design .header-menu { padding-inline: 20px; }
+  #design .winter-promo-script { font-size: clamp(48px, 14vw, 86px); }
+  #design .reviews-2gis-block { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  #design .reviews-2gis-pill { padding: 10px; gap: 6px; }
+  #design .reviews-2gis-pill strong { font-size: clamp(28px, 8vw, 34px); }
+  #design .reviews-2gis-pill img { width: 36px; height: 36px; flex-shrink: 0; }
+  #design .reviews-2gis-divider { flex-shrink: 0; }
+  .page-design .closing-area .footer-brand { width: 260px; grid-template-columns: minmax(0, 195px) 65px; }
+  .page-design .closing-area .footer-brand strong { font-size: 32px; }
+  .page-design .room-card.motion-card { transform: translateY(24px); }
+  .page-design .room-card.motion-card.is-visible { transform: none; }
+}
+@media (min-width: 1440px) {
+  .winter-tea-card strong { font-size: 40px; }
+}
+
+/* 21:9 / 32:9: panoramic photography and continuous backgrounds,
+   with the original 1920px content width and readable text sizes. */
+@media (min-width: 1921px) {
+  #viewport { overflow: clip; background: #fff; }
+  #design { overflow: visible; }
+  #design .hero { overflow: visible; }
+  #design .hero-photo {
+    left: calc((1920px - var(--viewport-width, 100vw)) / 2);
+    width: var(--viewport-width, 100vw);
+    object-fit: cover;
+    object-position: center 52%;
+  }
+  #design .header-wash {
+    left: calc((1920px - var(--viewport-width, 100vw)) / 2);
+    width: var(--viewport-width, 100vw);
+  }
+  #design .about-panel {
+    box-shadow: 0 0 0 100vmax #fff4ea;
+    clip-path: inset(0 -100vmax);
+  }
+  #design .reviews-section {
+    box-shadow: 0 0 0 100vmax #fff4ea;
+    clip-path: inset(0 -100vmax);
+  }
+  #design .winter-promo {
+    box-shadow: 0 0 0 100vmax #fff5eb;
+    clip-path: inset(0 -100vmax);
+  }
+  #design .partners-promo {
+    box-shadow: 0 0 0 100vmax #fffdf9;
+    clip-path: inset(0 -100vmax);
+  }
+  #design .news-contact-section, #design .closing-area { overflow: visible; }
+  #design .closing-area .closing-bg {
+    left: calc((1920px - var(--viewport-width, 100vw)) / 2);
+    width: var(--viewport-width, 100vw);
+  }
+  #design .real-footer {
+    box-shadow: 0 0 0 100vmax rgb(0 0 0 / 39%);
+    clip-path: inset(0 -100vmax);
+  }
+  .page-viewport { overflow: clip; }
+  .page-design .header::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 50%;
+    width: var(--viewport-width, 100vw);
+    transform: translateX(-50%);
+    background: #fff4ea;
+    z-index: -1;
+  }
+  .page-design .hero-slider, .page-design .cafe-slider {
+    width: var(--viewport-width, 100vw);
+    margin-left: calc((100% - var(--viewport-width, 100vw)) / 2);
+    height: clamp(800px, 65vh, 1100px);
+  }
+  .page-design .hero-slider .slider-arrow--prev,
+  .page-design .cafe-slider .cafe-arrow--prev { left: max(24px, calc((var(--viewport-width, 100vw) - 1840px) / 2)); }
+  .page-design .hero-slider .slider-arrow--next,
+  .page-design .cafe-slider .cafe-arrow--next { right: max(24px, calc((var(--viewport-width, 100vw) - 1840px) / 2)); }
+  .page-design .closing-area {
+    width: var(--viewport-width, 100vw);
+    margin-left: calc((100% - var(--viewport-width, 100vw)) / 2);
+  }
+  .page-design .closing-area .real-footer {
+    padding-inline: max(64px, calc((var(--viewport-width, 100vw) - 1792px) / 2));
+  }
+}

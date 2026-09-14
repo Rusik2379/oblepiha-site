@@ -1,0 +1,961 @@
+:root {
+  --brown: #4d1b14;
+  --brown2: #572e11;
+  --cream: #fff4ea;
+  --orange: #fd7702;
+  --design-height: 6552px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown2);
+  font-family: Arial,Helvetica,sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+/* decorative seabuckthorn branches from user's icon archive */
+
+.branch {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.branch-left {
+  left: -660px;
+  top: 38px;
+  width: 1020px;
+  height: 945px;
+  object-fit: contain;
+  transform: rotate(52.16deg);
+}
+
+.branch-right-top {
+  right: -175px;
+  left: auto;
+  top: 278px;
+  width: 360px;
+  height: 360px;
+  object-fit: contain;
+  transform: rotate(-32.71deg);
+  opacity: .17;
+  filter: sepia(1) saturate(.25) brightness(1.5);
+}
+
+.branch-video {
+  right: -360px;
+  left: auto;
+  top: 4440px;
+  width: 1010px;
+  height: 900px;
+  object-fit: contain;
+  transform: rotate(-78.9deg);
+}
+
+/* title */
+
+.rooms-heading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 650px;
+  text-align: center;
+  z-index: 5;
+}
+
+.rooms-heading h1 {
+  position: absolute;
+  left: 492px;
+  top: 238px;
+  width: 935px;
+  height: 90px;
+  margin: 0;
+  font-family: "Monument Extended",Arial Black,Arial,sans-serif;
+  font-size: 80px;
+  line-height: .98;
+  font-weight: 700;
+  letter-spacing: -1.6px;
+  color: var(--brown2);
+}
+
+.rooms-heading>img {
+  position: absolute;
+  left: 610px;
+  top: 318px;
+  width: 700px;
+  height: 205px;
+  object-fit: contain;
+}
+
+.price-title {
+  position: absolute;
+  left: 505px;
+  top: 490px;
+  width: 900px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 52px;
+}
+
+.price-title span {
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 80px;
+  line-height: .98;
+  letter-spacing: -1.6px;
+  color: var(--brown2);
+}
+
+.price-title i {
+  display: block;
+  width: 196px;
+  height: 3px;
+  background: var(--orange);
+}
+
+/* Room cards */
+
+.rooms-list {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 4380px;
+}
+
+.room-card {
+  position: absolute;
+  left: 38px;
+  width: 1844px;
+  height: 446px;
+  border-radius: 32px;
+  background: #fff;
+  color: var(--brown2);
+  box-shadow: 0 1px 0 rgba(99,48,20,.02);
+  overflow: hidden;
+}
+
+.room-photo {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 415px;
+  height: 415px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #efe7df;
+}
+
+.room-photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .22s ease,transform .45s cubic-bezier(.22,1,.36,1);
+}
+
+.room-photo.is-switching .room-photo-img {
+  opacity: .72;
+  transform: scale(1.025);
+}
+
+.photo-arrow {
+  position: absolute;
+  top: 50%;
+  width: 45px;
+  height: 45px;
+  margin-top: -22.5px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #7a4a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(74,41,21,.11);
+  transition: transform .2s ease,background .2s ease;
+  z-index: 3;
+}
+
+.photo-arrow:hover {
+  transform: scale(1.08);
+  background: #fff7ef;
+}
+
+.photo-arrow-prev {
+  left: 6px;
+}
+
+.photo-arrow-next {
+  right: 6px;
+}
+
+.room-info {
+  position: absolute;
+  left: 483px;
+  top: 17px;
+  width: 980px;
+  height: 410px;
+}
+
+.room-info h2 {
+  margin: 0;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 48px;
+  line-height: .98;
+  font-weight: 400;
+  letter-spacing: -.96px;
+  color: var(--brown2);
+  white-space: nowrap;
+}
+
+.room-info h2 span {
+  color: var(--orange);
+}
+
+.room-info ul {
+  position: absolute;
+  left: 0;
+  top: 91px;
+  width: 800px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.room-info li {
+  min-height: 55px;
+  display: grid;
+  grid-template-columns: 57px 1fr;
+  align-items: center;
+  column-gap: 7px;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 36px;
+  line-height: .98;
+  letter-spacing: -.72px;
+}
+
+.room-info li img {
+  width: 57px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.room-info li span {
+  display: block;
+}
+
+.room-price {
+  position: absolute;
+  right: 64px;
+  top: 17px;
+  width: 220px;
+  text-align: center;
+  font-family: "Pier Sans","Trebuchet MS",Arial,sans-serif;
+  font-size: 48px;
+  line-height: .98;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -.96px;
+  color: var(--orange);
+}
+
+.room-book {
+  position: absolute;
+  right: 94px;
+  top: 138px;
+  width: 420px;
+  height: 95px;
+  border-radius: 56px;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: "Monument Extended",Arial Black,Arial,sans-serif;
+  font-size: 24px;
+  line-height: .98;
+  font-weight: 700;
+  letter-spacing: -.48px;
+  transition: transform .25s ease,box-shadow .25s ease;
+}
+
+.room-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(253,119,2,.22);
+}
+
+/* long room descriptions get a touch more vertical breathing room */
+
+.room-card-3 .room-info ul,.room-card-4 .room-info ul,.room-card-5 .room-info ul,.room-card-6 .room-info ul,.room-card-7 .room-info ul {
+  top: 88px;
+  gap: 9px;
+}
+
+.room-card-3 .room-info li,.room-card-4 .room-info li,.room-card-5 .room-info li,.room-card-6 .room-info li,.room-card-7 .room-info li {
+  min-height: 58px;
+}
+
+/* video section */
+
+.hotel-video {
+  position: absolute;
+  left: 0;
+  top: 4440px;
+  width: 1920px;
+  height: 1350px;
+  z-index: 4;
+}
+
+.hotel-video h2 {
+  position: absolute;
+  left: 475px;
+  top: 180px;
+  width: 970px;
+  margin: 0;
+  text-align: center;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 96px;
+  line-height: .98;
+  font-weight: 400;
+  letter-spacing: -1.72px;
+  color: var(--brown2);
+}
+
+.video-frame {
+  position: absolute;
+  left: 210px;
+  top: 390px;
+  width: 1500px;
+  height: 844px;
+  border-radius: 42px;
+  overflow: hidden;
+  background: #2a160f;
+  box-shadow: 0 26px 70px rgba(87,46,17,.16);
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+
+  .room-photo-img,.photo-arrow,.room-book,.social-icon {
+    transition: none !important;
+  }
+}
+
+.room-card-1 .room-info,.room-card-2 .room-info {
+  left: 508px;
+}
+
+.room-card-1 .room-info ul,.room-card-2 .room-info ul {
+  left: -7px;
+}
+
+/* Footer */
+
+.rooms-closing-area {
+  position: absolute;
+  left: 0;
+  top: 5820px;
+  width: 1920px;
+  height: 732px;
+  overflow: hidden;
+  background: #24150d;
+  z-index: 10;
+}
+
+.closing-bg {
+  position: absolute;
+  left: -220px;
+  top: 0;
+  width: 2140px;
+  height: 732px;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+}
+
+.closing-title {
+  position: absolute;
+  left: 316px;
+  top: 40px;
+  width: 1288px;
+  text-align: center;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 64px;
+  line-height: 1.24;
+  letter-spacing: 1.28px;
+  color: #fff;
+}
+
+.closing-actions {
+  position: absolute;
+  left: 366px;
+  top: 261px;
+  width: 1187px;
+  display: flex;
+  gap: 51px;
+}
+
+.closing-btn {
+  width: 568px;
+  height: 105px;
+  border-radius: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Monument Extended",Arial Black,Arial,sans-serif;
+  font-size: 40px;
+  line-height: .98;
+  font-weight: 700;
+  letter-spacing: -.8px;
+  color: #fff;
+}
+
+.closing-btn--orange {
+  background: #fd7702;
+}
+
+.closing-btn--ghost {
+  border: 3px solid #fff;
+  background: rgba(0,0,0,.10);
+}
+
+.real-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1920px;
+  height: 253px;
+  background: rgba(0,0,0,.39);
+  color: #fff;
+}
+
+.footer-brand {
+  position: absolute;
+  left: 46px;
+  top: 86px;
+  width: 330px;
+  height: 100px;
+}
+
+.footer-brand strong {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "Graphik LCG",Arial Black,Arial,sans-serif;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.footer-brand small {
+  position: absolute;
+  left: 11px;
+  top: 50px;
+  font-family: "Graphik LCG",Arial,sans-serif;
+  font-size: 18px;
+}
+
+.footer-brand img {
+  position: absolute;
+  left: 223px;
+  top: -8px;
+  width: 97px;
+  height: 83px;
+  object-fit: contain;
+}
+
+.footer-links {
+  position: absolute;
+  left: 568px;
+  top: 48px;
+  display: flex;
+  gap: 220px;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 32px;
+  line-height: 1.25;
+}
+
+.footer-links>div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-address {
+  position: absolute;
+  left: 1462px;
+  top: 38px;
+  width: 400px;
+}
+
+.footer-address p {
+  margin: 0 0 24px 68px;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 32px;
+  line-height: 1.08;
+}
+
+.footer-location-icon {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 37px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.footer-socials {
+  margin-left: 66px;
+  gap: 8px;
+}
+
+/* Decorative elements and room layout */
+
+/* Full seabuckthorn decorations. The images themselves are complete;
+   the viewport edge performs the crop, so no cut leaf fragments remain. */
+
+.branch-left {
+  left: -185px;
+  top: 92px;
+  width: 500px;
+  height: auto;
+  object-fit: contain;
+  transform: rotate(34deg);
+  transform-origin: center center;
+  opacity: 1;
+}
+
+.beige-leaf {
+  position: absolute;
+  right: 20px;
+  left: auto;
+  top: 330px;
+  width: 215px;
+  height: 216px;
+  object-fit: contain;
+  transform: rotate(-32.71deg);
+  opacity: .76;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.branch-video {
+  right: -170px;
+  left: auto;
+  top: 4475px;
+  width: 560px;
+  height: auto;
+  object-fit: contain;
+  transform: rotate(-14deg);
+  transform-origin: center center;
+  opacity: 1;
+}
+
+/* Heading order: hotel name, scripted logo, price list. */
+
+.rooms-heading h1 {
+  top: 249px;
+}
+
+.rooms-heading>img {
+  left: 635px;
+  top: 332px;
+  width: 650px;
+  height: 154px;
+  object-fit: contain;
+}
+
+.price-title {
+  left: 0;
+  top: 491px;
+  width: 1920px;
+  height: 83px;
+  display: block;
+}
+
+.price-title span {
+  position: absolute;
+  left: 740px;
+  top: 0;
+  width: 440px;
+  height: 83px;
+  text-align: center;
+  white-space: nowrap;
+  font-family: "Pier Sans",Arial,sans-serif;
+  font-size: 80px;
+  line-height: .98;
+  letter-spacing: -1.6px;
+}
+
+.price-title i {
+  position: absolute;
+  top: 50px;
+  width: 196px;
+  height: 3px;
+  background: var(--orange);
+}
+
+.price-title i:first-child {
+  left: 505px;
+}
+
+.price-title i:last-child {
+  left: 1210px;
+}
+
+/* The card must own pointer input even though the full design canvas is scaled. */
+
+.room-photo {
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.photo-arrow {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.room-photo-img {
+  pointer-events: none;
+}
+
+.room-photo.is-switching .room-photo-img {
+  opacity: .52;
+  transform: scale(1.03);
+}
+
+/* Entrance and scroll animations */
+
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-fast: 420ms;
+  --motion-main: 820ms;
+}
+
+.motion-header .brand,
+.motion-header nav a,
+.motion-header .header-socials {
+  opacity: 0;
+  transform: translateY(-18px);
+  transition: opacity 700ms var(--motion-ease), transform 700ms var(--motion-ease);
+}
+
+.motion-header.is-visible .brand,
+.motion-header.is-visible nav a,
+.motion-header.is-visible .header-socials {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-header.is-visible nav a:nth-child(1) {
+  transition-delay: 60ms;
+}
+
+.motion-header.is-visible nav a:nth-child(2) {
+  transition-delay: 100ms;
+}
+
+.motion-header.is-visible nav a:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.motion-header.is-visible nav a:nth-child(4) {
+  transition-delay: 180ms;
+}
+
+.motion-header.is-visible nav a:nth-child(5) {
+  transition-delay: 220ms;
+}
+
+.motion-header.is-visible nav a:nth-child(6) {
+  transition-delay: 260ms;
+}
+
+.motion-header.is-visible .header-socials {
+  transition-delay: 300ms;
+}
+
+/* Heading sequence */
+
+.rooms-heading.motion-ready h1,
+.rooms-heading.motion-ready > img,
+.rooms-heading.motion-ready .price-title {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(5px);
+  transition: opacity 900ms var(--motion-ease), transform 900ms var(--motion-ease), filter 900ms var(--motion-ease);
+}
+
+.rooms-heading.motion-ready.is-visible h1,
+.rooms-heading.motion-ready.is-visible > img,
+.rooms-heading.motion-ready.is-visible .price-title {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.rooms-heading.motion-ready.is-visible > img {
+  transition-delay: 110ms;
+}
+
+.rooms-heading.motion-ready.is-visible .price-title {
+  transition-delay: 210ms;
+}
+
+/* Room cards reveal as the user scrolls */
+
+.room-card.motion-card {
+  opacity: 0;
+  transform: translateY(72px) scale(.985);
+  filter: blur(6px);
+  box-shadow: 0 14px 36px rgba(87,46,17,0);
+  transition: opacity 880ms var(--motion-ease),
+    transform 880ms var(--motion-ease),
+    filter 880ms var(--motion-ease),
+    box-shadow 420ms ease;
+  will-change: transform, opacity;
+}
+
+.room-card.motion-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.room-card.motion-card.is-visible:hover {
+  transform: translateY(-7px) scale(1.002);
+  box-shadow: 0 24px 56px rgba(87,46,17,.11);
+}
+
+/* Internal card choreography */
+
+.room-card.motion-card .room-photo {
+  opacity: 0;
+  transform: translateX(-30px) scale(.975);
+  transition: opacity 760ms var(--motion-ease) 100ms, transform 760ms var(--motion-ease) 100ms;
+}
+
+.room-card.motion-card .room-info {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 760ms var(--motion-ease) 170ms, transform 760ms var(--motion-ease) 170ms;
+}
+
+.room-card.motion-card .room-price,
+.room-card.motion-card .room-book {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 620ms var(--motion-ease) 260ms, transform 620ms var(--motion-ease) 260ms, box-shadow .25s ease;
+}
+
+.room-card.motion-card .room-book {
+  transition-delay: 330ms;
+}
+
+.room-card.motion-card.is-visible .room-photo,
+.room-card.motion-card.is-visible .room-info,
+.room-card.motion-card.is-visible .room-price,
+.room-card.motion-card.is-visible .room-book {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+.room-card.motion-card.is-visible .room-info li {
+  animation: amenityIn 560ms var(--motion-ease) both;
+}
+
+.room-card.motion-card.is-visible .room-info li:nth-child(1) {
+  animation-delay: 260ms;
+}
+
+.room-card.motion-card.is-visible .room-info li:nth-child(2) {
+  animation-delay: 320ms;
+}
+
+.room-card.motion-card.is-visible .room-info li:nth-child(3) {
+  animation-delay: 380ms;
+}
+
+.room-card.motion-card.is-visible .room-info li:nth-child(4) {
+  animation-delay: 440ms;
+}
+
+@keyframes amenityIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Photo gallery: smoother directional change */
+
+.room-photo {
+  overflow: hidden;
+}
+
+.room-photo-img {
+  will-change: transform, opacity, filter;
+}
+
+.photo-arrow {
+  transition: transform 260ms var(--motion-ease), background-color 260ms ease, box-shadow 260ms ease, opacity 260ms ease;
+}
+
+.photo-arrow:hover {
+  transform: scale(1.12);
+  box-shadow: 0 10px 22px rgba(87,46,17,.18);
+}
+
+.photo-arrow:active {
+  transform: scale(.96);
+}
+
+.room-photo:hover .photo-arrow {
+  opacity: 1;
+}
+
+/* Decorative pieces softly appear instead of popping in */
+
+.branch,
+.branch-video {
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 1100ms var(--motion-ease), filter 1100ms var(--motion-ease);
+}
+
+.branch.motion-visible,
+.branch-video.motion-visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.beige-leaf.motion-visible {
+  opacity: .76;
+}
+
+/* Video + footer reveal */
+
+.hotel-video.motion-section h2,
+.hotel-video.motion-section .video-frame {
+  opacity: 0;
+  transform: translateY(55px);
+  transition: opacity 900ms var(--motion-ease), transform 900ms var(--motion-ease);
+}
+
+.hotel-video.motion-section .video-frame {
+  transform: translateY(70px) scale(.975);
+  transition-delay: 110ms;
+}
+
+.hotel-video.motion-section.is-visible h2,
+.hotel-video.motion-section.is-visible .video-frame {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.rooms-closing-area.motion-section .closing-title,
+.rooms-closing-area.motion-section .closing-actions,
+.rooms-closing-area.motion-section .real-footer {
+  opacity: 0;
+  transform: translateY(42px);
+  transition: opacity 850ms var(--motion-ease), transform 850ms var(--motion-ease);
+}
+
+.rooms-closing-area.motion-section .closing-actions {
+  transition-delay: 100ms;
+}
+
+.rooms-closing-area.motion-section .real-footer {
+  transition-delay: 180ms;
+}
+
+.rooms-closing-area.motion-section.is-visible .closing-title,
+.rooms-closing-area.motion-section.is-visible .closing-actions,
+.rooms-closing-area.motion-section.is-visible .real-footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover details */
+
+.room-book:hover {
+  transform: translateY(-4px) scale(1.025) !important;
+  box-shadow: 0 16px 34px rgba(253,119,2,.28) !important;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-header .brand,
+  .motion-header nav a,
+  .motion-header .header-socials,
+  .rooms-heading.motion-ready h1,
+  .rooms-heading.motion-ready > img,
+  .rooms-heading.motion-ready .price-title,
+  .room-card.motion-card,
+  .room-card.motion-card .room-photo,
+  .room-card.motion-card .room-info,
+  .room-card.motion-card .room-price,
+  .room-card.motion-card .room-book,
+  .branch,
+  .branch-video,
+  .hotel-video.motion-section h2,
+  .hotel-video.motion-section .video-frame,
+  .rooms-closing-area.motion-section .closing-title,
+  .rooms-closing-area.motion-section .closing-actions,
+  .rooms-closing-area.motion-section .real-footer {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

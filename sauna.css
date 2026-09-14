@@ -1,0 +1,75 @@
+:root {
+  --content-height: 2751px;
+  --design-height: 3483px;
+  --header-alpha: .18;
+}
+
+.hero-slider {
+  height: 1108px;
+  background: #473323;
+}
+
+.header-wash {
+  position: absolute;
+  top: -72px;
+  left: -80px;
+  z-index: 6;
+  width: 2080px;
+  height: 250px;
+  background: radial-gradient(ellipse at 50% 18%, rgb(255 250 245 / 94%), rgb(244 241 236 / 62%) 49%, rgb(235 231 226 / 20%) 70%, rgb(235 231 226 / 0%) 86%);
+  filter: blur(13px);
+  pointer-events: none;
+}
+
+.title-mist {
+  position: absolute;
+  top: 100px;
+  left: 465px;
+  z-index: 7;
+  width: 990px;
+  height: 280px;
+  background: radial-gradient(ellipse at center, rgb(229 223 213 / 88%) 0%, rgb(222 216 207 / 69%) 42%, rgb(215 210 202 / 27%) 68%, rgb(210 205 198 / 0%) 87%);
+  filter: blur(23px);
+  pointer-events: none;
+}
+
+.sauna-title {
+  position: absolute;
+  top: 145px;
+  left: 595px;
+  z-index: 8;
+  width: 730px;
+  height: 180px;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 8px rgb(255 244 234 / 18%));
+  pointer-events: none;
+}
+
+.slider-arrow {
+  top: 484px;
+}
+
+.slider-arrow--prev {
+  left: 27px;
+}
+
+.slider-arrow--next {
+  right: 27px;
+}
+
+.book-hotspot {
+  position: absolute;
+  top: 1800px;
+  left: 832px;
+  z-index: 15;
+  width: 420px;
+  height: 92px;
+  border-radius: 46px;
+  background: transparent;
+}
+
+.book-hotspot:focus-visible {
+  outline: 5px solid rgb(253 119 2 / 50%);
+  outline-offset: 4px;
+}

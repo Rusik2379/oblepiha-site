@@ -1,0 +1,58 @@
+:root {
+  --content-height: 3066px;
+  --design-height: 3798px;
+  --header-alpha: .22;
+}
+
+.hero-slider {
+  height: 1147px;
+}
+
+.header-wash {
+  position: absolute;
+  top: -60px;
+  left: -70px;
+  z-index: 6;
+  width: 2060px;
+  height: 220px;
+  background: radial-gradient(ellipse at 50% 16%, rgb(255 250 245 / 92%), rgb(255 246 238 / 62%) 50%, rgb(255 246 238 / 0%) 83%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.hero-title-mist {
+  position: absolute;
+  top: 122px;
+  left: 430px;
+  z-index: 7;
+  width: 1060px;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgb(255 244 234 / 95%) 0%, rgb(255 244 234 / 80%) 34%, rgb(255 244 234 / 44%) 61%, rgb(255 244 234 / 0%) 100%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.banquet-title {
+  position: absolute;
+  top: 138px;
+  left: 550px;
+  z-index: 8;
+  width: 820px;
+  height: 145px;
+  object-fit: contain;
+  object-position: center top;
+  filter: drop-shadow(0 3px 13px rgb(255 244 234 / 60%));
+  pointer-events: none;
+}
+
+.slider-arrow {
+  top: 510px;
+}
+
+.slider-arrow--prev {
+  left: 26px;
+}
+
+.slider-arrow--next {
+  right: 26px;
+}

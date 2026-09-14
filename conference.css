@@ -1,0 +1,59 @@
+:root {
+  --content-height: 2225px;
+  --design-height: 2957px;
+  --header-alpha: .20;
+}
+
+.hero-slider {
+  height: 1054px;
+  background: #ddd;
+}
+
+.header-wash {
+  position: absolute;
+  top: -64px;
+  left: -70px;
+  z-index: 6;
+  width: 2060px;
+  height: 230px;
+  background: radial-gradient(ellipse at 50% 16%, rgb(255 250 245 / 93%), rgb(255 246 238 / 61%) 50%, rgb(255 246 238 / 0%) 83%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.title-mist {
+  position: absolute;
+  top: 105px;
+  left: 430px;
+  z-index: 7;
+  width: 1060px;
+  height: 250px;
+  background: radial-gradient(ellipse at center, rgb(255 244 234 / 92%) 0%, rgb(255 244 234 / 76%) 34%, rgb(255 244 234 / 40%) 62%, rgb(255 244 234 / 0%) 100%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.conference-title {
+  position: absolute;
+  top: 130px;
+  left: 500px;
+  z-index: 8;
+  width: 950px;
+  height: 190px;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 3px 12px rgb(255 244 234 / 55%));
+  pointer-events: none;
+}
+
+.slider-arrow {
+  top: 500px;
+}
+
+.slider-arrow--prev {
+  left: 26px;
+}
+
+.slider-arrow--next {
+  right: 26px;
+}

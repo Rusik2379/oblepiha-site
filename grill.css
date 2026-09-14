@@ -1,0 +1,59 @@
+:root {
+  --content-height: 2258px;
+  --design-height: 2990px;
+  --header-alpha: .20;
+}
+
+.hero-slider {
+  height: 1054px;
+  background: #2c1c12;
+}
+
+.header-wash {
+  position: absolute;
+  top: -64px;
+  left: -70px;
+  z-index: 6;
+  width: 2060px;
+  height: 230px;
+  background: radial-gradient(ellipse at 50% 16%, rgb(255 250 245 / 93%), rgb(255 246 238 / 60%) 50%, rgb(255 246 238 / 0%) 83%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.title-mist {
+  position: absolute;
+  top: 104px;
+  left: 440px;
+  z-index: 7;
+  width: 1040px;
+  height: 230px;
+  background: radial-gradient(ellipse at center, rgb(255 244 234 / 90%) 0%, rgb(255 244 234 / 72%) 35%, rgb(255 244 234 / 35%) 62%, rgb(255 244 234 / 0%) 100%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.grill-title {
+  position: absolute;
+  top: 138px;
+  left: 590px;
+  z-index: 8;
+  width: 740px;
+  height: 165px;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 3px 12px rgb(255 244 234 / 50%));
+  pointer-events: none;
+}
+
+.slider-arrow {
+  top: 500px;
+}
+
+.slider-arrow--prev {
+  left: 26px;
+}
+
+.slider-arrow--next {
+  right: 26px;
+}
