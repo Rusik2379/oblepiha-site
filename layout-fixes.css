@@ -72,47 +72,9 @@ body { min-width: 0; }
   .winter-tea-card strong { font-size: 40px; }
 }
 
-/* 21:9 / 32:9: panoramic photography and continuous backgrounds,
-   with the original 1920px content width and readable text sizes. */
+/* Internal pages keep their full-bleed photography on panoramic screens.
+   The homepage itself is scaled by script.js, so it must not be expanded twice. */
 @media (min-width: 1921px) {
-  #viewport { overflow: clip; background: #fff; }
-  #design { overflow: visible; }
-  #design .hero { overflow: visible; }
-  #design .hero-photo {
-    left: calc((1920px - var(--viewport-width, 100vw)) / 2);
-    width: var(--viewport-width, 100vw);
-    object-fit: cover;
-    object-position: center 52%;
-  }
-  #design .header-wash {
-    left: calc((1920px - var(--viewport-width, 100vw)) / 2);
-    width: var(--viewport-width, 100vw);
-  }
-  #design .about-panel {
-    box-shadow: 0 0 0 100vmax #fff4ea;
-    clip-path: inset(0 -100vmax);
-  }
-  #design .reviews-section {
-    box-shadow: 0 0 0 100vmax #fff4ea;
-    clip-path: inset(0 -100vmax);
-  }
-  #design .winter-promo {
-    box-shadow: 0 0 0 100vmax #fff5eb;
-    clip-path: inset(0 -100vmax);
-  }
-  #design .partners-promo {
-    box-shadow: 0 0 0 100vmax #fffdf9;
-    clip-path: inset(0 -100vmax);
-  }
-  #design .news-contact-section, #design .closing-area { overflow: visible; }
-  #design .closing-area .closing-bg {
-    left: calc((1920px - var(--viewport-width, 100vw)) / 2);
-    width: var(--viewport-width, 100vw);
-  }
-  #design .real-footer {
-    box-shadow: 0 0 0 100vmax rgb(0 0 0 / 39%);
-    clip-path: inset(0 -100vmax);
-  }
   .page-viewport { overflow: clip; }
   .page-design .header::before {
     content: '';

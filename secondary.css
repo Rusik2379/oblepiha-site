@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Marggraff Kursiv Zarte";
+  src: url("assets/fonts/Marggraff%20Kursiv%20Zarte.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
   --brown: #4d1b14;
   --brown-dark: #572e11;
@@ -35,6 +43,22 @@ a {
 
 button {
   font: inherit;
+}
+
+.hero-title-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #5b2b15;
+  font-family: "Marggraff Kursiv Zarte", Georgia, serif;
+  font-size: 120px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .page-viewport {

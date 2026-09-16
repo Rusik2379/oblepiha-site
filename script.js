@@ -3,7 +3,6 @@
   const DESIGN_H = 13984;
   // Reflow the same content on smaller screens; never shrink a phone-sized canvas.
   const REFLOW_WIDTH = 1439;
-  const MAX_SCALE = 1;
   const stage = document.getElementById('design');
   const viewport = document.getElementById('viewport');
   let resizeFrame = 0;
@@ -18,7 +17,9 @@
       document.documentElement.style.setProperty('--site-scale', '1');
       return;
     }
-    const scale = Math.min(availableWidth / DESIGN_W, MAX_SCALE);
+    // The desktop artwork is 1920px wide. Scale it both down and up so it
+    // continues to fill large and high-DPI browser viewports without gutters.
+    const scale = availableWidth / DESIGN_W;
     const renderedWidth = DESIGN_W * scale;
     stage.style.left = `${Math.max(0, (availableWidth - renderedWidth) / 2)}px`;
     stage.style.transform = `scale(${scale})`;
