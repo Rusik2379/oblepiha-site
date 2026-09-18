@@ -92,10 +92,31 @@
 .partner-step:nth-child(1) > img { width: 167px; height: 175px; }
 .partner-step:nth-child(2) > img { width: 167px; height: 163px; }
 .partner-step:nth-child(3) > img { width: 166px; height: 162px; }
-.partner-step h4 { font-family: 'Coolvetica','Arial Narrow',Arial,sans-serif; font-size: 36px; line-height: .98; font-weight: 700; letter-spacing: .72px; }
-.partner-step:first-child h4 { font-size: 40px; letter-spacing: .8px; }
-.partner-step p { width: 323px; margin: 16px 0 0 28px; font-family: 'Pier Sans','Arial Narrow',Arial,sans-serif; font-size: 30px; line-height: 30px; font-weight: 400; letter-spacing: -1.5px; }
-.partner-step:nth-child(3) p { width: 340px; }
+.partner-step h4 {
+  position: relative;
+  display: block;
+  width: calc(100% - 24px);
+  margin-left: 24px;
+  font-family: 'Pier Sans','Arial Narrow',Arial,sans-serif;
+  font-size: 32px;
+  line-height: .98;
+  font-weight: 700;
+  letter-spacing: .32px;
+}
+.partner-step-number { position: absolute; left: -27px; top: 0; white-space: nowrap; }
+.partner-step-title { display: block; min-width: 0; }
+.partner-step:first-child h4 { font-size: 32px; letter-spacing: .32px; }
+.partner-step p,
+.partner-step:nth-child(3) p {
+  width: auto;
+  margin: 16px 2px 0 28px;
+  font-family: 'Pier Sans','Arial Narrow',Arial,sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+}
+.partner-step .figma-line-break { display: none; }
 .partners-discount { right: 38px; top: 890px; width: 430px; height: 430px; border: 10px solid #fffdf9; background: url('assets/homepage-extra/discount-circle.png') center / cover no-repeat; box-shadow: none; }
 .partners-discount span { font-size: 35px; line-height: 1.16; }
 .partners-discount strong { font-family: 'Monument Extended','Arial Black',Arial,sans-serif; font-size: 110px; line-height: 1; letter-spacing: 2.2px; margin-top: 6px; font-weight: 900; }

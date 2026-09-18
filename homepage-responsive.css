@@ -254,7 +254,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
   .partners-steps { grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 24px !important; padding-top: 44px; }
   .partner-step { height: auto; padding: 66px 22px 28px !important; border: 2px solid #fd7702; border-radius: 30px !important; }
   .partner-step > img { width: 94px !important; height: 94px !important; top: -48px !important; }
-  .partner-step h4, .partner-step:first-child h4 { font-size: 23px !important; line-height: 1.18; letter-spacing: 0; }
+  .partner-step h4, .partner-step:first-child h4 {
+    width: calc(100% - 28px);
+    margin-left: 28px;
+    font-family: 'Pier Sans','Arial Narrow',Arial,sans-serif;
+    font-size: 23px !important;
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
   .partner-step p, .partner-step:nth-child(3) p { width: auto; margin: 16px 0 0; font-size: 18px !important; line-height: 1.5 !important; letter-spacing: 0; }
   .figma-line-break { display: none; }
   .partners-benefit-heading { grid-column: 1 / -1; margin-top: 20px; gap: 16px !important; }

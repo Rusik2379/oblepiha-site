@@ -7,6 +7,22 @@
   const viewport = document.getElementById('viewport');
   let resizeFrame = 0;
 
+  // Keep short Russian prepositions and conjunctions with the following word.
+  // This prevents typographic orphans such as a lone "в" or "на" at line ends.
+  function protectShortWords(root) {
+    const pattern = /(^|[\s(«„"—–-])(в|во|на|и|а|но|с|со|к|ко|у|о|об|от|до|за|по|из|для|под|над|при|не|ни|же|ли|бы)\s+(?=[а-яё0-9«„"])/g;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+
+    while ((node = walker.nextNode())) {
+      const parentTag = node.parentElement?.tagName;
+      if (parentTag === 'SCRIPT' || parentTag === 'STYLE' || parentTag === 'NOSCRIPT') continue;
+      node.nodeValue = node.nodeValue.replace(pattern, '$1$2\u00a0');
+    }
+  }
+
+  protectShortWords(stage);
+
   function fit() {
     const availableWidth = Math.max(1, document.documentElement.clientWidth);
     document.documentElement.style.setProperty('--viewport-width', `${availableWidth}px`);
