@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Pier Sans";
+  src: url("assets/fonts/pier-sans.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 /* Shared responsive corrections. Keep this after each page's existing styles. */
 html { scrollbar-gutter: stable; scroll-behavior: auto; }
 body { min-width: 0; }
@@ -100,5 +108,518 @@ body { min-width: 0; }
   }
   .page-design .closing-area .real-footer {
     padding-inline: max(64px, calc((var(--viewport-width, 100vw) - 1792px) / 2));
+  }
+}
+
+/* Keep the footer identity in exactly the same geometry on every page.
+   Text and the berry are pinned inside one fixed component, so font loading
+   and neighbouring grid columns cannot move them independently. */
+.page-design .closing-area .footer-brand {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: 370px;
+  height: 100px;
+  max-width: none;
+}
+.page-design .closing-area .footer-brand strong {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  font-size: 44px;
+  line-height: 1;
+}
+.page-design .closing-area .footer-brand small {
+  position: absolute;
+  left: 11px;
+  top: 50px;
+  white-space: nowrap;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 0;
+}
+.page-design .closing-area .footer-brand img {
+  position: absolute;
+  left: 250px;
+  top: -8px;
+  width: 97px;
+  height: 83px;
+  max-width: none;
+  object-fit: contain;
+}
+.page-design .closing-area .footer-address {
+  box-sizing: border-box;
+  width: 400px;
+  padding-left: 0;
+  justify-self: end;
+}
+.page-design .closing-area .footer-address p {
+  margin: 0 0 24px 68px;
+  font-size: 32px;
+  line-height: 1.08;
+}
+.page-design .closing-area .footer-location-icon {
+  top: 13px;
+  left: 0;
+  width: 37px;
+  height: 55px;
+}
+.page-design .closing-area .footer-socials { margin-left: 66px; }
+
+@media (min-width: 1000px) and (max-width: 1439px) {
+  .page-design .closing-area .real-footer {
+    grid-template-columns: minmax(250px, .8fr) minmax(330px, 1.3fr) minmax(250px, .85fr);
+    gap: 24px;
+  }
+  .page-design .closing-area .footer-address {
+    grid-column: 3;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 1439px) {
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: min(100%, 330px);
+    height: 75px;
+    max-width: 330px;
+  }
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    white-space: nowrap;
+    font-size: 34px;
+    line-height: 1;
+  }
+  #design .closing-area .footer-brand small,
+  .page-design .closing-area .footer-brand small {
+    position: absolute;
+    left: 6px;
+    top: 44px;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  #design .closing-area .footer-brand img,
+  .page-design .closing-area .footer-brand img {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 0;
+    width: 70px;
+    height: 65px;
+    max-width: none;
+    object-fit: contain;
+  }
+  #design .closing-area .footer-address,
+  .page-design .closing-area .footer-address {
+    box-sizing: border-box;
+    width: min(100%, 310px);
+    padding-left: 0;
+  }
+  #design .closing-area .footer-address p,
+  .page-design .closing-area .footer-address p {
+    margin: 0 0 20px 38px;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  #design .closing-area .footer-location-icon,
+  .page-design .closing-area .footer-location-icon {
+    left: 0;
+    top: 4px;
+    width: 24px;
+    height: 34px;
+  }
+  #design .closing-area .footer-socials,
+  .page-design .closing-area .footer-socials { margin-left: 38px; }
+}
+
+@media (min-width: 700px) and (max-width: 999px) {
+  #design .closing-area .real-footer,
+  .page-design .closing-area .real-footer { grid-template-columns: minmax(0, 1fr) minmax(270px, 1fr); }
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand { grid-column: 1 / -1; justify-self: start; }
+  #design .closing-area .footer-address,
+  .page-design .closing-area .footer-address { grid-column: 2; justify-self: end; }
+}
+
+@media (max-width: 699px) {
+  #design .closing-area .real-footer,
+  .page-design .closing-area .real-footer { grid-template-columns: minmax(0, 1fr); }
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand { grid-column: auto; justify-self: start; }
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong { font-size: 32px; }
+  #design .closing-area .footer-address,
+  .page-design .closing-area .footer-address { grid-column: auto; justify-self: start; }
+}
+
+@media (max-width: 359px) {
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand { width: min(100%, 300px); }
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong { font-size: 29px; }
+  #design .closing-area .footer-brand img,
+  .page-design .closing-area .footer-brand img { left: auto; right: 0; width: 60px; }
+}
+
+/* v11.1: lock the Облепиха identity as one fixed composition on responsive layouts.
+   The berry must be positioned from the LEFT edge of the logo component, never
+   from a flexible grid track/right edge. This prevents it jumping between pages,
+   viewport widths and font-load states. */
+@media (max-width: 1439px) {
+  #design .header .brand,
+  .page-design .header .brand {
+    position: relative;
+    inset: auto;
+    display: block;
+    flex: 0 0 214px;
+    width: 214px;
+    height: 56px;
+    min-width: 214px;
+  }
+
+  #design .header .brand strong,
+  .page-design .header .brand strong {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    margin: 0;
+    white-space: nowrap;
+    font-size: 27px;
+    line-height: 1;
+  }
+
+  #design .header .brand small,
+  .page-design .header .brand small {
+    position: absolute;
+    left: 2px;
+    top: 39px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  #design .header .brand img,
+  .page-design .header .brand img {
+    position: absolute;
+    left: 156px;
+    right: auto;
+    top: 3px;
+    display: block;
+    width: 58px;
+    height: 50px;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 270px;
+    max-width: 270px;
+    min-width: 270px;
+    height: 75px;
+  }
+
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    margin: 0;
+    white-space: nowrap;
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  #design .closing-area .footer-brand small,
+  .page-design .closing-area .footer-brand small {
+    position: absolute;
+    left: 6px;
+    top: 44px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  #design .closing-area .footer-brand img,
+  .page-design .closing-area .footer-brand img {
+    position: absolute;
+    left: 195px;
+    right: auto;
+    top: 0;
+    display: block;
+    width: 70px;
+    height: 65px;
+    max-width: none;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 319px) {
+  /* Defensive fallback only for unusually narrow embedded webviews. */
+  #design .header .brand,
+  .page-design .header .brand { transform: scale(.92); transform-origin: left center; }
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand { transform: scale(.92); transform-origin: left center; }
+}
+
+
+/* v12.1: make the header/footer logo spacing constant across responsive widths,
+   and center the address + socials as one compact footer block. */
+@media (max-width: 1439px) {
+  #design .header .brand,
+  .page-design .header .brand {
+    position: relative;
+    inset: auto;
+    display: inline-grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+    row-gap: 2px;
+    width: max-content;
+    min-width: 0;
+    height: auto;
+    flex: 0 0 auto;
+    align-items: start;
+    justify-items: start;
+  }
+
+  #design .header .brand strong,
+  .page-design .header .brand strong {
+    position: static;
+    margin: 0;
+    white-space: nowrap;
+    font-size: 27px;
+    line-height: 1;
+  }
+
+  #design .header .brand small,
+  .page-design .header .brand small {
+    position: static;
+    margin: 0;
+    padding: 0 0 0 2px;
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 1.1;
+  }
+
+  #design .header .brand img,
+  .page-design .header .brand img {
+    position: static;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: start;
+    justify-self: start;
+    display: block;
+    width: 58px;
+    height: 50px;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand {
+    position: relative;
+    inset: auto;
+    display: inline-grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows: auto auto;
+    column-gap: 14px;
+    row-gap: 2px;
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    justify-self: start;
+    align-items: start;
+    justify-items: start;
+  }
+
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong {
+    position: static;
+    margin: 0;
+    white-space: nowrap;
+    font-size: 34px;
+    line-height: 1;
+  }
+
+  #design .closing-area .footer-brand small,
+  .page-design .closing-area .footer-brand small {
+    position: static;
+    margin: 0;
+    padding: 0 0 0 6px;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.15;
+  }
+
+  #design .closing-area .footer-brand img,
+  .page-design .closing-area .footer-brand img {
+    position: static;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: start;
+    justify-self: start;
+    display: block;
+    width: 70px;
+    height: 65px;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  #design .closing-area .footer-address,
+  .page-design .closing-area .footer-address {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "icon text"
+      "socials socials";
+    column-gap: 12px;
+    row-gap: 18px;
+    align-items: start;
+    justify-content: center;
+    width: max-content;
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  #design .closing-area .footer-location-icon,
+  .page-design .closing-area .footer-location-icon {
+    position: static;
+    grid-area: icon;
+    align-self: start;
+    justify-self: center;
+    width: 24px;
+    height: 34px;
+  }
+
+  #design .closing-area .footer-address p,
+  .page-design .closing-area .footer-address p {
+    position: static;
+    grid-area: text;
+    width: auto;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  #design .closing-area .footer-socials,
+  .page-design .closing-area .footer-socials {
+    position: static;
+    grid-area: socials;
+    margin: 0;
+    justify-self: center;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1439px) {
+  #design .closing-area .footer-address,
+  .page-design .closing-area .footer-address {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 699px) {
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand {
+    justify-self: center;
+  }
+
+  #design .closing-area .footer-address,
+  .page-design .closing-area .footer-address {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 419px) {
+  #design .header .brand,
+  .page-design .header .brand {
+    column-gap: 8px;
+  }
+
+  #design .header .brand strong,
+  .page-design .header .brand strong {
+    font-size: 25px;
+  }
+
+  #design .header .brand img,
+  .page-design .header .brand img {
+    width: 48px;
+    height: 42px;
+  }
+
+  #design .closing-area .footer-brand,
+  .page-design .closing-area .footer-brand {
+    column-gap: 8px;
+  }
+
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong {
+    font-size: 32px;
+  }
+
+  #design .closing-area .footer-brand img,
+  .page-design .closing-area .footer-brand img {
+    width: 62px;
+    height: 58px;
+  }
+}
+
+@media (max-width: 359px) {
+  #design .header .brand strong,
+  .page-design .header .brand strong {
+    font-size: 22px;
+  }
+
+  #design .header .brand small,
+  .page-design .header .brand small {
+    font-size: 10px;
+  }
+
+  #design .header .brand img,
+  .page-design .header .brand img {
+    width: 44px;
+    height: 39px;
+  }
+
+  #design .closing-area .footer-brand strong,
+  .page-design .closing-area .footer-brand strong {
+    font-size: 29px;
+  }
+
+  #design .closing-area .footer-brand small,
+  .page-design .closing-area .footer-brand small {
+    font-size: 12px;
+  }
+
+  #design .closing-area .footer-brand img,
+  .page-design .closing-area .footer-brand img {
+    width: 58px;
+    height: 54px;
+  }
+
+  #design .closing-area .footer-address p,
+  .page-design .closing-area .footer-address p {
+    font-size: 18px;
   }
 }

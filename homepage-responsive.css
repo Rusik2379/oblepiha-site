@@ -271,8 +271,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
   .partners-benefit img { width: 76px !important; height: 76px !important; }
   .partners-benefit strong { font-size: 19px !important; line-height: 1.2; }
   .partners-benefit span { font-size: 17px !important; line-height: 1.4 !important; }
-  .partners-phone { grid-column: 1 / -1; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 36px; padding: 20px !important; font-size: 28px !important; line-height: 1.2; min-height: 64px; }
-  .partners-phone-label { font-size: 22px; }
+  .partners-phone { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 0; padding: 14px 20px !important; font-size: 28px !important; line-height: 1.2; min-height: 78px; }
+  .partners-contact-item { display: flex; align-items: center; justify-content: center; min-width: 0; gap: 16px; padding: 0 18px; color: #fff8f2; text-decoration: none; }
+  .partners-contact-address { font-size: 22px; white-space: normal; }
+  .partners-contact-item img { flex: 0 0 auto; width: 52px; height: 56px; object-fit: contain; }
   .partners-phone::before { content: none; }
   .partners-background-berries { display: block; opacity: .25; }
   .partners-berries { width: 90px; height: 130px; opacity: .35; z-index: 0; }
@@ -450,8 +452,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
   .partners-benefits { grid-template-columns: 1fr !important; }
   .partners-benefit { display: grid; grid-template-columns: 70px 1fr !important; align-items: center; padding: 12px 0 !important; gap: 18px; }
   .partners-benefit img { width: 70px !important; height: 70px !important; }
-  .partners-phone { flex-direction: column; font-size: 24px !important; }
-  .partners-phone-label { font-size: 20px; }
+  .partners-phone { display: flex; flex-direction: column; gap: 14px; font-size: 24px !important; }
+  .partners-contact-item { width: 100%; padding: 0; }
+  .partners-contact-address { font-size: 20px; }
   .contact-lines { grid-template-columns: 1fr; font-size: 22px; }
   .contacts-info-side { padding: 36px var(--page-gutter); }
   .contacts-map-side { min-height: 420px; padding: 0; }
@@ -481,4 +484,71 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+
+/* v17: clean mobile address/phone card. Keep desktop/tablet layout unchanged. */
+@media (max-width: 649px) {
+  .partners-phone {
+    display: block;
+    padding: 0 !important;
+    min-height: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    font-size: 20px !important;
+    line-height: 1.25;
+  }
+
+  .partners-phone .partners-contact-item {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    align-items: center;
+    justify-content: stretch;
+    column-gap: 14px;
+    width: 100%;
+    min-height: 78px;
+    padding: 12px 18px !important;
+    text-align: left;
+  }
+
+  .partners-phone .partners-contact-item img {
+    width: 48px;
+    height: 52px;
+    justify-self: center;
+    object-fit: contain;
+  }
+
+  .partners-phone .partners-contact-item span {
+    min-width: 0;
+    justify-self: start;
+  }
+
+  .partners-phone .partners-contact-address {
+    font-size: 19px;
+    letter-spacing: 0;
+  }
+
+  .partners-phone .partners-contact-call {
+    border-top: 1px solid rgba(255, 248, 242, .34);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 379px) {
+  .partners-phone .partners-contact-item {
+    grid-template-columns: 52px minmax(0, 1fr);
+    column-gap: 10px;
+    min-height: 72px;
+    padding-inline: 14px !important;
+  }
+
+  .partners-phone .partners-contact-item img {
+    width: 44px;
+    height: 48px;
+  }
+
+  .partners-phone .partners-contact-address { font-size: 18px; }
+  .partners-phone .partners-contact-call { font-size: 20px; }
 }
