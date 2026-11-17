@@ -1,0 +1,71 @@
+/* Carry the selected compositions and new photos through to phones and tablets. */
+@media (max-width: 999px) {
+  #design .about-panel > .about-title,
+  #design .about-panel > picture:first-of-type,
+  #design .about-panel > .about-copy,
+  #design .about-panel > .about-photo,
+  #design .about-panel > .benefit,
+  #design .about-panel > .decor-about { display: none; }
+  #design .about-panel { padding-top: 36px; gap: 36px; }
+  .about-options { display: block; grid-column: 1 / -1; }
+  .about-option { padding: 0; }
+  .about-option-intro { display: flex; flex-direction: column; gap: 32px; }
+  .about-option-collage { position: relative; width: min(100%, 600px); height: clamp(320px, 105vw, 540px); }
+  .about-option-exterior { position: absolute; inset: 0 auto auto 0; width: 88%; height: 70%; object-fit: cover; border-radius: 64px 22px 22px 22px; }
+  .about-option-room { position: absolute; right: 0; bottom: 24px; width: 58%; height: 55%; object-fit: cover; border: 6px solid #fff4ea; border-radius: 22px; box-shadow: 0 10px 24px #572e1114; }
+  .about-option-berries { position: absolute; left: 0; bottom: 40px; width: 72px; height: 90px; object-fit: contain; }
+  .about-option-caption { position: absolute; left: 0; bottom: -2px; color: #a36a34; font: italic 18px/1.4 Georgia, serif; }
+  .about-option-copy { width: 100%; }
+  .about-option-eyebrow { display: block; margin-bottom: 16px; color: #ad5d1c; font: 700 12px/1.4 Arial, sans-serif; letter-spacing: .16em; }
+  .about-option-copy h2 { margin: 0 0 22px; }
+  .about-option-copy h2 img { display: block; width: 100%; height: auto; }
+  .about-option-copy > p { margin: 0 0 18px; color: #69452d; font: 17px/1.6 Arial, sans-serif; }
+  .about-option-benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid #dfc6ad; }
+  .about-option-benefit > img { display: block; width: 36px; height: 36px; object-fit: contain; margin-bottom: 12px; }
+  .about-option-benefit h3 { margin: 0 0 6px; color: #572e11; font: 700 16px/1.3 Arial, sans-serif; }
+  .about-option-benefit p { margin: 0; color: #886349; font: 15px/1.5 Arial, sans-serif; }
+
+  #design .approach-section { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr; gap: 24px; padding: 24px 0 0; }
+  #design .approach-heading { display: grid; gap: 16px; }
+  #design .approach-label { margin: 0; font: 700 12px/1.4 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; text-align: left; color: #ad5d1c; }
+  #design .details-title { width: 100%; height: auto; margin: 0; }
+  #design .approach-section .detail { grid-column: auto; padding: 0; }
+  #design .approach-section .detail:nth-of-type(-n+3) { display: grid; grid-template-columns: 64px 1fr; gap: 8px 16px; text-align: left; padding: 20px 16px; background: #fffbf6; border: 1px solid #ead3bf; border-radius: 22px; }
+  #design .approach-section .detail:nth-of-type(-n+3) > img { grid-row: 1 / 3; width: 64px; height: 64px; align-self: center; object-fit: contain; border-radius: 50%; }
+  #design .approach-section .detail h3 { font-size: 18px; line-height: 1.35; margin: 0; }
+  #design .approach-section .detail p { font-size: 16px; line-height: 1.5; margin: 0; }
+  #design .approach-section .detail br { display: none; }
+  #design .approach-section .detail:nth-of-type(n+4) { display: grid; gap: 12px; text-align: left; padding: 0 20px 22px; background: #fffbf6; border: 1px solid #ead3bf; border-radius: 24px; overflow: hidden; }
+  #design .approach-section .detail:nth-of-type(n+4) > img { width: calc(100% + 40px); height: auto; aspect-ratio: 1.6; margin: 0 -20px; object-fit: cover; border-radius: 0; }
+
+  #design .idea-section { gap: 28px; padding-block: 36px 44px; }
+  #design .idea-photo { border-radius: 60px 24px 24px 24px; overflow: hidden; }
+  #design .idea-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1.25; object-fit: cover; }
+  #design .idea-label { font: 700 12px/1.4 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #ad5d1c; }
+  #design .idea-script { margin: 18px 0 24px; }
+  #design .idea-original-copy { display: none; }
+  #design .idea-story { display: block; }
+  #design .idea-story p { font: 17px/1.6 Arial, sans-serif; color: #69452d; margin: 0 0 18px; letter-spacing: 0; }
+  #design .idea-story .idea-story-lead { font-weight: 700; color: #572e11; }
+  #design .idea-values { display: flex; flex-wrap: wrap; gap: 10px 18px; padding: 18px 0; margin: 22px 0; border-block: 1px solid #dfc6ad; }
+  #design .idea-values span { display: flex; align-items: center; gap: 8px; color: #a36125; font: 15px/1.4 Arial, sans-serif; }
+  #design .idea-values span::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fd7702; }
+  #design .idea-story .idea-thanks { border-left: 3px solid #fd7702; padding-left: 16px; margin-bottom: 0; font-weight: 700; }
+  #design .idea-decor { width: 72px; height: 90px; opacity: .2; pointer-events: none; }
+  #design .services-section { gap: 24px; padding-block: 32px 40px; }
+  #design .service-card { overflow: hidden; padding: 0 20px 18px; border: 1px solid #ead3bf; border-radius: 24px; }
+  #design .service-photo { width: calc(100% + 40px); margin-inline: -20px; aspect-ratio: 1.6; height: auto; object-fit: cover; border-radius: 0; }
+  #design .service-icon { position: absolute; inset: 14px 14px auto auto; width: 44px; height: 44px; margin: 0; padding: 10px; border-radius: 50%; background: #fff4eaf5; }
+  #design .service-card h3 { font-size: 20px; margin: 20px 0 16px; }
+  #design .service-card p { display: none; }
+  #design .service-card a { max-width: none; font-size: 17px; min-height: 44px; }
+}
+@media (min-width: 650px) and (max-width: 999px) {
+  .about-option-intro { gap: 40px; }
+  .about-option-benefit { display: flex; gap: 16px; }
+  .about-option-benefit > img { flex-shrink: 0; }
+  #design .approach-section { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #design .approach-heading { grid-column: 1 / -1; }
+  #design .approach-section .detail:nth-of-type(3) { grid-column: 1 / -1; }
+  #design .approach-section .detail:last-child { grid-column: 1 / -1; }
+}

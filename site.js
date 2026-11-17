@@ -13,21 +13,6 @@
     link.setAttribute('aria-label', `${link.getAttribute('aria-label').split(' — ')[0]} — на главную`);
   });
 
-  const footerIcons = new Map([
-    ['Позвонить', 'assets/social/phone-white.png'],
-    ['WhatsApp', 'assets/social/whatsapp-white.png'],
-    ['Почта', 'assets/social/mail-white.png'],
-    ['ВКонтакте', 'assets/social/vk-white.png'],
-    ['Telegram', 'assets/social/telegram-white.png'],
-  ]);
-
-  document.querySelectorAll('.footer-socials .social-icon').forEach((link) => {
-    const label = link.getAttribute('aria-label') || '';
-    const icon = [...footerIcons].find(([name]) => label.startsWith(name));
-    const image = link.querySelector('img');
-    if (icon && image) image.src = icon[1];
-  });
-
   document.querySelectorAll('.header').forEach((header) => {
     const toggle = header.querySelector('.menu-toggle');
     const nav = header.querySelector('[data-menu]');
@@ -69,4 +54,36 @@
       if (!event.matches) setOpen(false);
     });
   });
+
+  // Internal pages share the homepage dropdown and footer palette.
+  if (!onHomePage) {
+    const header = document.querySelector('.site-header');
+    const closing = document.querySelector('.site-closing');
+    const dropdown = header?.querySelector('.pages-dropdown');
+    document.addEventListener('click', event => {
+      if (dropdown && !dropdown.contains(event.target)) dropdown.open = false;
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && dropdown?.open) {
+        dropdown.open = false;
+        dropdown.querySelector('summary').focus();
+      }
+    });
+    breakpoint.addEventListener('change', () => { if (dropdown) dropdown.open = false; });
+    let toneFrame = 0;
+    function updateTone() {
+      toneFrame = 0;
+      if (!header || !closing) return;
+      if (innerWidth < 1000) { delete header.dataset.tone; return; }
+      const bounds = closing.getBoundingClientRect();
+      const probe = header.getBoundingClientRect().height + 20;
+      const atEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      header.dataset.tone = bounds.top <= probe || atEnd && bounds.top < innerHeight ? 'dark' : 'warm';
+    }
+    const scheduleTone = () => { if (!toneFrame) toneFrame = requestAnimationFrame(updateTone); };
+    window.addEventListener('scroll', scheduleTone, { passive: true });
+    window.addEventListener('resize', scheduleTone, { passive: true });
+    window.addEventListener('load', scheduleTone);
+    updateTone();
+  }
 })();

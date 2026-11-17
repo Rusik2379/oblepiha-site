@@ -1,0 +1,70 @@
+/* Sauna rates follow the warm palette and rounded cards of the service page. */
+#saunaDesign .sauna-pricing {
+  max-width: 650px;
+  margin-top: 24px;
+}
+
+#saunaDesign .sauna-pricing h3 {
+  margin: 0 0 12px;
+  color: var(--brown-dark, #572e11);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+#saunaDesign .sauna-pricing-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+#saunaDesign .sauna-pricing-option {
+  min-width: 0;
+  padding: 18px 22px;
+  border: 1px solid #ead3bf;
+  border-radius: 20px;
+  background: #fff1e2;
+}
+
+#saunaDesign .sauna-pricing-option dt {
+  color: #754b2e;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+#saunaDesign .sauna-pricing-option dd {
+  margin: 8px 0 0;
+  color: #b95100;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+#saunaDesign .sauna-pricing-option dd span {
+  font-size: .7em;
+  font-weight: 400;
+}
+
+#saunaDesign .sauna-pricing .sauna-pricing-note {
+  margin: 14px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--orange, #fd7702);
+  color: #754b2e;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+#saunaDesign .sauna-pricing-note strong {
+  color: var(--brown-dark, #572e11);
+  font-weight: 600;
+}
+
+@media (max-width: 599px) {
+  #saunaDesign .sauna-pricing-options { gap: 10px; }
+  #saunaDesign .sauna-pricing-option { padding: 16px 14px; border-radius: 16px; }
+  #saunaDesign .sauna-pricing-option dt { font-size: 14px; }
+  #saunaDesign .sauna-pricing-option dd { font-size: 30px; }
+}

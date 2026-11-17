@@ -1,0 +1,96 @@
+/* Vector replacements keep the original mobile icon boxes and reading order. */
+#conferenceDesign .service-content-grid article::before,
+#grillDesign .service-content-grid article::after,
+#saunaDesign .service-feature-icon {
+  background: var(--feature-icon) center / contain no-repeat;
+  mix-blend-mode: normal;
+}
+#conferenceDesign .service-content-grid article:nth-child(1) { --feature-icon: url("assets/service-icons/people.svg"); }
+#conferenceDesign .service-content-grid article:nth-child(2) { --feature-icon: url("assets/service-icons/seating.svg"); }
+#conferenceDesign .service-content-grid article:nth-child(3) { --feature-icon: url("assets/service-icons/wifi.svg"); }
+#grillDesign .service-content-grid article:nth-child(1),
+#saunaDesign .service-content-grid article:nth-child(4) { --feature-icon: url("assets/service-icons/people.svg"); }
+#grillDesign .service-content-grid article:nth-child(2) { --feature-icon: url("assets/service-icons/dining.svg"); }
+#grillDesign .service-content-grid article:nth-child(3) { --feature-icon: url("assets/service-icons/journey.svg"); }
+#saunaDesign .sauna-feature-1 { --feature-icon: url("assets/service-icons/steam.svg"); }
+#saunaDesign .sauna-feature-2 { --feature-icon: url("assets/service-icons/jacuzzi.svg"); }
+#saunaDesign .sauna-feature-3 { --feature-icon: url("assets/service-icons/lounge.svg"); }
+
+@media (min-width: 1000px) {
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .hero-slider {
+    width: min(1640px, calc(100% - 2 * var(--gutter)));
+    height: clamp(320px, 48svh, 520px); margin: 24px auto 0; border-radius: 28px;
+  }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .hero-title-text {
+    top: 24px; width: min(80%, 900px); height: 100px;
+    font-size: clamp(60px, 4.5vw, 80px);
+  }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .title-mist {
+    top: 12px; width: 80%; height: 130px;
+  }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .slider-arrow {
+    width: 48px; height: 48px; font-size: 30px;
+    color: #572e11; background: #fff9f2f5; box-shadow: 0 4px 16px #24150d18;
+  }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .slider-arrow--prev { left: 18px; }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .slider-arrow--next { right: 18px; }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .slider-arrow span { transform: none; }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .service-content {
+    width: min(1640px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: 36px 0 48px;
+  }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .service-content > h1 { font-size: 46px; margin-bottom: 28px; }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .service-content-grid h2 { font-size: 22px; line-height: 1.25; }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .service-content-grid p { font-size: 16px; line-height: 1.5; }
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .service-content::before,
+  :is(#conferenceDesign, #grillDesign, #saunaDesign) .service-content::after { width: 110px; height: 140px; }
+
+  #conferenceDesign .service-content { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+  #conferenceDesign .service-lead { max-width: 720px; font-size: 18px; line-height: 1.55; }
+  #conferenceDesign .service-check-list {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 24px; margin-top: 18px; font-size: 16px; line-height: 1.5;
+  }
+  #conferenceDesign .service-check-list li { padding-block: 8px; }
+  #conferenceDesign .service-content-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-self: center; }
+  #conferenceDesign .service-content-grid article {
+    padding: 24px 14px; border: 1px solid #ead3bf; border-radius: 24px; background: #fff9f2;
+  }
+  #conferenceDesign .service-content-grid article::before { width: 64px; height: 64px; aspect-ratio: 1; }
+  #conferenceDesign .service-content-grid h2 { font-size: 20px; margin: 16px 0 0; }
+
+  #grillDesign .service-content-grid { gap: 24px; }
+  #grillDesign .service-content-grid article {
+    padding: 16px 16px 24px; border: 1px solid #ead3bf; border-radius: 24px; background: #fff9f2;
+  }
+  #grillDesign .service-card-photo { max-width: 380px; border-radius: 18px; }
+  #grillDesign .service-content-grid article::after { width: 48px; height: 48px; margin-top: 18px; aspect-ratio: 1; }
+  #grillDesign .service-content-grid h2 { margin: 12px 0 10px; }
+  #grillDesign .service-content-grid p { max-width: 350px; }
+
+  #saunaDesign .service-story {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px;
+    margin-top: 0; padding: 24px; border: 1px solid #ead3bf; border-radius: 28px; background: #fff9f2;
+  }
+  #saunaDesign .service-content-photo { height: auto; aspect-ratio: auto; object-fit: contain; border-radius: 20px; }
+  #saunaDesign .service-story h2 { font-size: 36px; margin-bottom: 16px; }
+  #saunaDesign .service-story p { max-width: 650px; font-size: 18px; line-height: 1.55; }
+  #saunaDesign .service-book-button { font-size: 18px; min-height: 52px; padding: 15px 28px; margin-top: 24px; }
+  #saunaDesign .service-content-grid { gap: 20px; margin-top: 28px; }
+  #saunaDesign .service-content-grid article { padding: 20px 18px; border-width: 1px; border-color: #ead3bf; border-radius: 24px; background: #fff9f2; }
+  #saunaDesign .service-feature-icon { width: 64px; height: 64px; aspect-ratio: 1; }
+  #saunaDesign .service-content-grid h2 { margin: 14px 0 10px; }
+  #saunaDesign .service-content-grid p { max-width: 290px; }
+}
+@media (min-width: 1000px) and (max-width: 1439px) {
+  #conferenceDesign .service-content { column-gap: 28px; }
+  #conferenceDesign .service-content-grid { gap: 12px; }
+  #conferenceDesign .service-content-grid article { padding: 20px 10px; }
+  #conferenceDesign .service-content-grid h2 { font-size: 18px; }
+  #grillDesign .service-content-grid { gap: 18px; }
+  #grillDesign .service-content-grid h2,
+  #saunaDesign .service-content-grid h2 { font-size: 20px; }
+  #saunaDesign .service-story { gap: 28px; padding: 20px; }
+  #saunaDesign .service-story h2 { font-size: 32px; }
+  #saunaDesign .service-content-grid { gap: 16px; }
+  #saunaDesign .service-content-grid article { padding-inline: 14px; }
+}

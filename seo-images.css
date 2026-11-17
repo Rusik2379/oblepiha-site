@@ -1,0 +1,3 @@
+/* Intrinsic dimensions reserve space without overriding responsive photo crops.
+   Existing class rules still set explicit heights for galleries and hero images. */
+:where(img[width][height]) { height: auto; }

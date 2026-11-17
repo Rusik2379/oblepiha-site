@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>Управление сайтом — Облепиха</title>
+  <link rel="icon" href="favicon.ico"/><link rel="stylesheet" href="editor.css?v=20261002-1"/>
+  <script src="editor.js?v=20261002-1" defer></script>
+</head>
+<body>
+  <header class="editor-header"><a href="index.html">Облепиха <span>Управление сайтом</span></a><div><a href="news.html" target="_blank" rel="noopener">Новости ↗</a><a href="vacancies.html" target="_blank" rel="noopener">Вакансии ↗</a><button id="logout" type="button" hidden>Выйти</button></div></header>
+  <main>
+    <p id="status" class="editor-status" role="status" aria-live="polite"></p>
+    <section id="login-panel" class="login-panel" hidden>
+      <p class="eyebrow">Только для администратора</p><h1>Вход в редактор</h1><p>Управляйте новостями, акциями, вакансиями и рекламой комплекса.</p>
+      <form id="login-form"><label for="password">Пароль</label><input id="password" type="password" autocomplete="current-password" required maxlength="256"/><button type="submit" class="primary">Войти</button></form>
+    </section>
+    <div id="workspace" hidden>
+      <nav class="editor-tabs" aria-label="Разделы управления"><button type="button" id="news-tab" aria-pressed="true" aria-controls="news-workspace">Новости и акции</button><button type="button" id="vacancies-tab" aria-pressed="false" aria-controls="vacancies-workspace">Вакансии</button><button type="button" id="advertisement-tab" aria-pressed="false" aria-controls="advertisement-workspace">Реклама</button></nav>
+      <div id="news-workspace" class="editor-workspace">
+      <section class="editor-compose">
+        <p class="eyebrow">Новости и акции</p><h1 id="form-title">Новая публикация</h1>
+        <form id="post-form">
+          <label for="title">Заголовок</label><input id="title" maxlength="140" required placeholder="О чём новость?"/>
+          <label for="photo">Фотография</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp"/><p class="field-hint">JPG, PNG или WebP, до 8 МБ. При редактировании фотографию можно оставить прежней.</p>
+          <img id="preview" class="editor-preview" alt="Предпросмотр фотографии" hidden/>
+          <label for="text">Текст публикации</label><textarea id="text" rows="9" maxlength="12000" required placeholder="Напишите новость. Для нового абзаца оставьте пустую строку."></textarea>
+          <div class="editor-fields"><div><label for="kind">Раздел</label><select id="kind"><option value="news">Новость</option><option value="promotion">Акция</option></select></div><div><label for="start-date">Начало акции</label><input id="start-date" type="date"/><p class="field-hint">Необязательно. Дата будет видна гостям.</p></div></div>
+          <label class="checkbox"><input id="pinned" type="checkbox"/> Закрепить сверху</label>
+          <p class="field-hint">Для постеров удобно использовать вертикальный формат 4:5, например 1080 × 1350. Изображение будет видно целиком. На главной видны до четырёх публикаций: закреплённые, затем самые новые.</p>
+          <div class="editor-actions"><button class="primary" type="submit" id="save">Опубликовать</button><button type="button" id="cancel-edit" hidden>Отменить редактирование</button></div>
+        </form>
+      </section>
+      <section class="editor-posts"><h2>Опубликовано на сайте</h2><p class="field-hint">Изменения появляются на сайте после сохранения.</p><div id="post-list"></div></section>
+      </div>
+      <div id="vacancies-workspace" class="editor-workspace" hidden>
+        <section class="editor-compose">
+          <p class="eyebrow">Работа в комплексе</p><h1 id="vacancy-form-title">Новая вакансия</h1>
+          <form id="vacancy-form">
+            <label for="vacancy-title">Название должности</label><input id="vacancy-title" maxlength="140" required placeholder="Например, администратор гостиницы"/>
+            <div class="editor-fields"><div><label for="vacancy-salary">Оплата</label><input id="vacancy-salary" maxlength="120" placeholder="Например, от 45 000 ₽"/></div><div><label for="vacancy-schedule">График</label><input id="vacancy-schedule" maxlength="140" placeholder="Например, сменный, 2/2"/></div></div>
+            <label for="vacancy-text">Описание вакансии</label><textarea id="vacancy-text" rows="10" maxlength="12000" required placeholder="Обязанности, требования и условия работы. Для нового абзаца оставьте пустую строку."></textarea>
+            <label for="vacancy-phone">Телефон для отклика</label><input id="vacancy-phone" type="tel" autocomplete="tel" maxlength="32" required value="+7 913 238 54 84"/>
+            <label class="checkbox"><input id="vacancy-published" type="checkbox" checked/> Показывать на сайте</label>
+            <p class="field-hint">Снимите галочку, чтобы сохранить черновик или закрыть вакансию, не удаляя её. Гости смогут откликнуться по указанному телефону.</p>
+            <div class="editor-actions"><button class="primary" type="submit" id="vacancy-save">Сохранить вакансию</button><button type="button" id="vacancy-cancel" hidden>Отменить редактирование</button></div>
+          </form>
+        </section>
+        <section class="editor-posts"><h2>Все вакансии</h2><p class="field-hint">Опубликованные вакансии видны на странице «Вакансии». Черновики доступны только здесь.</p><div id="vacancy-list"></div></section>
+      </div>
+      <div id="advertisement-workspace" class="editor-workspace" hidden>
+        <section class="editor-compose">
+          <p class="eyebrow">Реклама при входе на сайт</p><h1>Рекламный баннер</h1>
+          <form id="advertisement-form">
+            <label for="advertisement-title">Название предложения</label><input id="advertisement-title" maxlength="140" placeholder="Например, зимняя акция"/><p class="field-hint">Короткое название акции или предложения.</p>
+            <label for="advertisement-photo">Картинка</label><input id="advertisement-photo" type="file" accept="image/jpeg,image/png,image/webp"/><p class="field-hint">JPG, PNG или WebP, до 8 МБ. Картинка показывается целиком, без обрезки. Для замены загрузите новую.</p>
+            <label for="advertisement-link">Ссылка по нажатию на картинку</label><input id="advertisement-link" maxlength="2000" placeholder="Например, promotions.html или https://…"/><p class="field-hint">Необязательно. Без ссылки картинка просто показывается.</p>
+            <label class="checkbox"><input id="advertisement-enabled" type="checkbox"/> Показывать рекламу на сайте</label>
+            <p class="field-hint">Показываем при первом открытии любой страницы сайта, один раз за сеанс в этой вкладке. После изменения и сохранения баннер можно увидеть снова. Крестик и клавиша Esc закрывают окно.</p>
+            <div class="editor-actions"><button class="primary" type="submit" id="advertisement-save">Сохранить рекламу</button><button type="button" id="advertisement-disable" hidden>Отключить показ</button><button class="danger" type="button" id="advertisement-delete" hidden>Удалить баннер</button></div>
+          </form>
+        </section>
+        <section class="editor-posts"><h2>Предпросмотр</h2><p id="advertisement-state" class="field-hint">Баннер ещё не добавлен.</p><img id="advertisement-preview" class="editor-preview advertisement-preview" alt="Предпросмотр рекламного баннера" hidden/><p class="field-hint">На сайте будет затемнённый фон и кнопка закрытия. Изменения вступают в силу после сохранения.</p></section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

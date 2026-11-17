@@ -1,0 +1,17 @@
+.env.news
+.news-data/
+.news-admin-access.txt
+node_modules/
+site-data/
+exports/
+*.zip
+
+# Local configuration, credentials, editor state and runtime files.
+.env
+.env.*
+!.env.example
+!.env.*.example
+.idea/
+.DS_Store
+Thumbs.db
+*.log

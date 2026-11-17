@@ -1,5 +1,4 @@
-/* Homepage only. Original 1920px artwork is retained on desktop.
-   Below 1440px the SAME elements flow into readable rows; no page-wide scaling. */
+/* Homepage only. Content flows at every width; desktop sizing is refined below. */
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -23,7 +22,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
   body, #viewport { background: #fff4ea; }
 }
 
-@media (max-width: 1439px) {
+@media all {
   :root { --header-height: 76px; --page-gutter: clamp(20px, 4vw, 56px); }
   html { scroll-padding-top: calc(var(--header-height) + 16px); }
   body { min-width: 0; }
@@ -551,4 +550,247 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
 
   .partners-phone .partners-contact-address { font-size: 18px; }
   .partners-phone .partners-contact-call { font-size: 20px; }
+}
+
+/* Compact desktop composition. Tablet and phone rules above stay unchanged. */
+@media (min-width: 1000px) {
+  :root { --page-gutter: max(32px, calc((100vw - 1200px) / 2)); }
+  #design .hero { min-height: 600px; height: 100svh; padding: 140px clamp(48px, 4.8vw, 92px) 64px; }
+  #design .hero-content { width: min(55%, 480px); }
+  #design .hero-slogan { font-size: 23px; }
+  #design .hero-desc { font-size: 18px; }
+  #design .about-panel { width: 100%; margin-top: 0; padding: 28px var(--page-gutter) 40px; gap: 18px 24px; border-radius: 40px 40px 0 0; }
+  #design .about-title { width: 190px; }
+  #design .warm-title { max-width: 580px; }
+  #design .about-copy { font-size: 18px; line-height: 1.45; }
+  #design .about-photo { min-height: 280px; max-height: 340px; }
+  #design .benefit { padding-top: 16px; }
+  #design .benefit img { width: 60px; height: 58px; margin-bottom: 10px; }
+  #design .benefit b { font-size: 18px; }
+  #design .benefit span { font-size: 16px; }
+  #design .approach-label { margin-top: 28px; font-size: 22px; }
+  #design .details-title { width: min(680px, 100%); }
+  #design .detail > img { aspect-ratio: 1.8; object-fit: cover; border-radius: 22px; }
+  #design .detail h3 { font-size: 21px; margin: 14px 0 8px; }
+  #design .detail p { font-size: 16px; line-height: 1.45; }
+  #design .idea-section { padding-block: 44px; gap: 36px; }
+  #design .idea-photo img { aspect-ratio: 1.3; object-fit: cover; }
+  #design .idea-label { font-size: 23px; }
+  #design .idea-copy p { font-size: 18px; line-height: 1.45; }
+  #design .services-section { gap: 24px; padding-bottom: 40px; }
+  #design .services-title { max-width: 760px; justify-self: center; margin-bottom: 0; }
+  #design .service-card { padding: 0 20px 22px; border-radius: 24px; }
+  #design .service-photo { width: calc(100% + 40px); margin-inline: -20px; height: clamp(120px, 16vh, 160px); object-fit: cover; border-radius: 24px; }
+  #design .service-icon { position: absolute; inset: calc(clamp(120px, 16vh, 160px) + 12px) 20px auto auto; width: 32px; height: 32px; margin: 0; }
+  #design .service-card h3 { font-size: 20px; margin: 18px 0 14px; padding-right: 36px; }
+  #design .service-card p { display: none; }
+  #design .service-card a { font-size: 17px; min-height: 44px; }
+  #design .reviews-section { gap: 20px; padding-block: 40px; }
+  #design .reviews-heading { height: 150px; }
+  #design .reviews-thanks { font-size: 21px; }
+  #design .reviews-stage { height: 330px; }
+  #design .review-slide { height: 300px; }
+  #design .reviews-carousel { padding-bottom: 52px; }
+  #design .winter-promo, #design .partners-promo { padding-block: 40px !important; gap: 24px; }
+  #design .winter-promo-script { font-size: 72px; margin-bottom: 8px; }
+  #design .winter-promo-title { font-size: 54px !important; }
+  #design .winter-agency-badge { min-height: 96px; }
+  #design .winter-tea-card { min-height: 250px !important; }
+  #design .winter-tea-card p { font-size: 28px !important; }
+  #design .winter-tea-card strong { font-size: 23px !important; }
+  #design .winter-ski-main strong { font-size: 34px !important; }
+  #design .partners-copy h2 { font-size: 48px !important; }
+  #design .partners-copy h3 { font-size: 44px !important; }
+  #design .partners-coop { font-size: 30px !important; }
+  #design .partners-visual { max-width: 450px; }
+  #design .partners-how { max-width: 440px; margin-block: 8px; }
+  #design .partner-step p { font-size: 16px !important; }
+  #design .contacts-map-side { min-height: 500px; }
+  #design .map-title { top: 32px; }
+  #design .contacts-info-side { padding: 36px var(--page-gutter) 36px 32px; }
+  #design .contacts-script-title { max-width: 320px; }
+  #design .contact-lines { font-size: 19px; gap: 18px; }
+  #design .closing-title { font-size: 34px; }
+  #design .closing-btn { font-size: 18px; min-height: 50px; }
+}
+
+@media (min-width: 1440px) {
+  #design .hero-content { width: min(52%, 680px); }
+  #design .header-wash { z-index: 1; inset: -30px -40px auto; width: calc(100% + 80px); height: 280px; filter: blur(18px); background: linear-gradient(180deg, #fff4eaf5 0%, #fff4ead9 30%, #fff4ea80 55%, #fff4ea26 76%, #fff4ea00 100%); pointer-events: none; }
+  #design .header-wash::after { display: none; }
+  /* Fade the dark overlay in too: a hard top edge shows through the light wash. */
+  #design .hero-dark { top: 0; height: 100%; mask-image: linear-gradient(180deg, transparent, #000 240px); }
+  #design .hero-title { max-height: min(36svh, 330px); }
+  #design .hero-slogan { font-size: 30px; }
+  #design .hero-desc { font-size: 21px; }
+  #design .header { position: absolute; height: 136px; padding: 28px 2.5vw; gap: 28px; background: transparent; border: 0; backdrop-filter: none; }
+  #design .header .brand { display: grid; flex: 0 0 auto; width: auto; height: auto; grid-template-columns: max-content auto; grid-template-rows: auto auto; column-gap: 12px; }
+  #design .header .brand strong { font-size: clamp(30px, 2.1vw, 40px); }
+  #design .header .brand small { font-size: clamp(12px, .84vw, 16px); }
+  #design .header .brand img { width: clamp(65px, 5vw, 97px); height: clamp(56px, 4.3vw, 83px); }
+  #design .header-menu { position: static; display: flex; flex: 1; justify-content: space-evenly; align-items: center; gap: 24px; padding: 0; max-height: none; overflow: visible; opacity: 1; visibility: visible; pointer-events: auto; transform: none; box-shadow: none; background: none; }
+  #design .header nav { display: flex; gap: clamp(14px, 1.5vw, 30px); width: auto; }
+  #design .header nav a { font-size: clamp(15px, 1.15vw, 22px); padding: 0; min-height: 40px; background: none; color: var(--brown); }
+  #design .header nav a:hover { color: #c74600; }
+  #design .header-socials { gap: 10px; padding: 0; }
+  #design .header-socials .social-icon { width: clamp(30px, 2vw, 40px); height: clamp(30px, 2vw, 40px); }
+  #design .menu-toggle { display: none; }
+  #design .footer-brand { width: 205px; }
+  #design .footer-address { width: auto; }
+}
+
+.pages-dropdown { display: none; }
+@media (min-width: 1000px) {
+  #design .pages-dropdown { display: block; position: relative; flex: 0 0 auto; margin-left: auto; color: var(--brown); }
+  .pages-dropdown summary { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid #572e1160; border-radius: 50%; cursor: pointer; list-style: none; font: 26px/1 Arial, sans-serif; }
+  .pages-dropdown summary::-webkit-details-marker { display: none; }
+  .pages-dropdown summary:focus-visible { outline: 3px solid #fd7702; outline-offset: 4px; }
+  .pages-dropdown[open] summary { background: #fff4ea; }
+  .pages-dropdown-links { position: absolute; top: calc(100% + 12px); right: 0; width: 330px; padding: 14px; border: 1px solid #fff4ea80; border-radius: 18px; background: #fff4eae8; backdrop-filter: blur(18px); box-shadow: 0 12px 32px #24150d20; }
+  .pages-dropdown-links a { display: block; padding: 12px 14px; border-radius: 10px; font-family: 'Monument Extended', 'Arial Black', Arial, sans-serif; font-size: clamp(15px, 1.15vw, 22px); font-weight: 700; line-height: 1.3; letter-spacing: 0; color: var(--brown); }
+  .pages-dropdown-links a:hover, .pages-dropdown-links a:focus-visible { background: #fd770215; color: #c74600; }
+}
+@media (min-width: 1000px) and (max-width: 1439px) {
+  #design .pages-dropdown { margin-right: 16px; }
+  .pages-dropdown summary { width: auto; padding-inline: 16px; border-radius: 24px; font-size: 16px; }
+  .pages-dropdown summary::before { content: 'Услуги ▾'; }
+  .pages-dropdown summary span { display: none; }
+}
+
+/* Internal pages join the existing collapsible navigation on smaller screens. */
+#design .header nav a.mobile-page-link { display: none; }
+@media (max-width: 1439px) {
+  #design .header nav a.mobile-page-link { display: flex; }
+  #design .header nav a.mobile-page-link[href="rooms.html"] { margin-top: 12px; border-top: 1px solid #572e1120; border-radius: 0; padding-top: 18px; }
+  #design .pages-dropdown { display: none; }
+}
+
+/* Fixed desktop navigation follows the palette of the section beneath it. */
+@media (min-width: 1000px) {
+  #design .header { position: fixed; z-index: 200; --header-ink: #4d1b14; --header-surface: #fff4eaf5; color: var(--header-ink); background: var(--header-surface); transition: background-color .25s, color .25s; }
+  #design .header[data-tone="paper"] { --header-surface: #ffffffed; }
+  #design .header[data-tone="warm"] { --header-surface: #fffbf6f2; }
+  #design .header[data-tone="dark"] { --header-surface: #29180fee; --header-ink: #fff4ea; }
+  #design .header .brand, #design .header .menu-toggle, #design .header .pages-dropdown { color: var(--header-ink); }
+  #design .header[data-tone="dark"] .menu-toggle { border-color: #fff4ea70; }
+}
+@media (min-width: 1440px) {
+  :root { --header-height: 112px; }
+  /* Keep the same geometry at the top and while scrolling. Only colors change. */
+  #design .header { height: var(--header-height); padding-block: 14px; backdrop-filter: blur(16px); }
+  #design .header[data-tone="hero"] { background: transparent; backdrop-filter: none; }
+  #design .header-wash { display: none; }
+  #design .header[data-tone="hero"]::before { content: ''; position: absolute; z-index: -1; pointer-events: none; inset: -30px -40px auto; height: 240px; filter: blur(18px); background: linear-gradient(180deg, #fff4eaf5, #fff4ead9 30%, #fff4ea80 55%, #fff4ea00); }
+  #design .header nav a { color: var(--header-ink); }
+  #design .header[data-tone="dark"] .header-socials img { filter: brightness(0) invert(1); }
+  #design .header[data-tone="dark"] .pages-dropdown summary { border-color: #fff4ea70; }
+  #design .header[data-tone="dark"] .pages-dropdown[open] summary { background: #4d2e20; }
+  #design .header[data-tone="dark"] .pages-dropdown-links { background: #29180ff5; border-color: #fff4ea30; }
+  #design .header[data-tone="dark"] .pages-dropdown-links a { color: #fff4ea; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #design .header { transition: none; }
+}
+
+/* Brand story: a large photograph and a clear reading column. */
+.idea-story { display: none; }
+@media (min-width: 1000px) {
+  #design .idea-section {
+    min-height: calc(100svh - var(--header-height) - 20px);
+    padding: 32px clamp(48px, 5vw, 100px) 44px;
+    grid-template-columns: .95fr 1.05fr;
+    gap: clamp(40px, 4.5vw, 90px);
+    background: #fffdf9;
+  }
+  #design .idea-photo {
+    height: clamp(380px, calc(100svh - var(--header-height) - 116px), 760px);
+    border-radius: 100px 30px 30px 30px;
+    box-shadow: 0 18px 44px #572e1110;
+  }
+  #design .idea-photo img { height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center; }
+  #design .idea-label { font: 700 13px/1.3 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #ad5d1c; }
+  #design .idea-script { margin: 24px 0 30px; width: min(800px, 100%); height: auto; }
+  #design .idea-copy .idea-original-copy { display: none; }
+  #design .idea-story { display: block; }
+  #design .idea-story p { max-width: 740px; margin: 0 0 22px; color: #69452d; font: clamp(18px, 1.2vw, 23px)/1.6 Arial, sans-serif; letter-spacing: 0; }
+  #design .idea-story .idea-story-lead { font-weight: 700; color: #572e11; }
+  #design .idea-values { display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 28px 0; padding: 22px 0; border-top: 1px solid #dfc6ad; border-bottom: 1px solid #dfc6ad; }
+  #design .idea-values span { display: flex; align-items: center; gap: 10px; font: 16px/1.4 Arial, sans-serif; color: #a36125; }
+  #design .idea-values span::before { content: ''; width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: #fd7702; }
+  #design .idea-story .idea-thanks { margin: 0; padding: 6px 0 6px 22px; border-left: 3px solid #fd7702; font-size: clamp(17px, 1.05vw, 20px); font-weight: 700; color: #572e11; }
+  #design .idea-decor { inset: auto 0 24px auto; width: 120px; height: 140px; opacity: .35; pointer-events: none; }
+}
+@media (min-width: 1000px) and (max-height: 900px) {
+  #design .idea-section { padding-block: 24px 32px; }
+  #design .idea-photo { height: clamp(360px, calc(100svh - var(--header-height) - 92px), 760px); }
+  #design .idea-script { margin: 18px 0 22px; max-width: 680px; }
+  #design .idea-story p { font-size: 18px; line-height: 1.5; margin-bottom: 16px; }
+  #design .idea-values { margin-block: 20px; padding-block: 16px; }
+  #design .idea-story .idea-thanks { margin-bottom: 0; font-size: 17px; }
+}
+
+/* Services use photo-led cards with a consistent compact footer. */
+.services-heading { display: contents; }
+.services-eyebrow { display: none; }
+@media (min-width: 1000px) {
+  #design .services-section {
+    height: calc(100svh - var(--header-height) - 20px); min-height: 600px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto repeat(2, minmax(0, 1fr));
+    gap: 24px; padding: 24px max(48px, calc((100vw - 1640px) / 2)) 32px;
+    background: #fffdf9;
+  }
+  #design .services-heading { display: grid; grid-column: 1 / -1; gap: 8px; }
+  #design .services-eyebrow { display: block; color: #ad5d1c; font: 700 13px/1.3 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  #design .services-title { width: min(800px, 100%); max-width: none; height: auto; max-height: 76px; justify-self: start; margin: 0; object-fit: contain; object-position: left; }
+  #design .service-card {
+    display: grid; grid-template-rows: minmax(90px, 1fr) auto auto;
+    min-height: 0; padding: 0 22px 14px; border-radius: 24px;
+    border: 1px solid #ead3bf; background: #fff4ea;
+    box-shadow: 0 8px 24px #572e1108;
+    transition: box-shadow .2s, border-color .2s;
+  }
+  #design .service-photo { width: calc(100% + 44px); height: 100%; min-height: 0; margin: 0 -22px; border-radius: 0; aspect-ratio: auto; object-fit: cover; }
+  #design .service-icon { inset: 16px 16px auto auto; width: 48px; height: 48px; padding: 10px; border-radius: 50%; background: #fff4eaf5; box-shadow: 0 3px 12px #24150d18; }
+  #design .service-card h3 { margin: 16px 0 12px; padding: 0; font-size: clamp(17px, 1.05vw, 20px); line-height: 1.3; }
+  #design .service-card a { margin: 0; width: 100%; max-width: none; height: 40px; min-height: 40px; padding: 8px 0; border: 0; border-top: 1px solid #dfc6ad; border-radius: 0; background: transparent; color: #bd580c; font-size: 16px; }
+  #design .service-card a span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #fd7702; color: #fff; font-size: 20px; }
+  #design .service-card:hover, #design .service-card:focus-within { border-color: #fd7702; box-shadow: 0 12px 28px #572e1115; }
+}
+@media (min-width: 1000px) and (max-height: 900px) {
+  #design .services-section { min-height: 580px; gap: 18px; padding-block: 18px 24px; }
+  #design .services-title { max-height: 60px; }
+  #design .service-card { padding-bottom: 10px; }
+  #design .service-card h3 { margin: 12px 0 8px; font-size: 17px; }
+  #design .service-card a { height: 36px; min-height: 36px; font-size: 15px; }
+  #design .service-icon { width: 42px; height: 42px; padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #design .service-card { transition: none; }
+}
+
+/* script.js handles section transitions and reading positions inside tall sections.
+   Native mandatory snapping would pull those reading positions back to the top. */
+@media (min-width: 1000px) {
+  html { scroll-snap-type: none; scroll-padding-top: calc(var(--header-height) + 12px); }
+  /* Clip decoration without creating a nested scroll container for the two sections. */
+  #design .about-panel { overflow: clip; }
+  #design .hero,
+  #design .about-option,
+  #design .approach-section,
+  #design .idea-section,
+  #design .services-section,
+  #design .reviews-section,
+  #design .winter-promo,
+  #design .partners-promo,
+  #design .contacts-area,
+  #design .closing-area { scroll-snap-align: start; scroll-snap-stop: normal; }
+}
+@media (min-width: 1000px) and (prefers-reduced-motion: no-preference) {
+  #design .service-photo,
+  #design .idea-photo img,
+  #design .service-card a span { transition: transform .5s cubic-bezier(.22,1,.36,1); }
+  #design .service-card:hover .service-photo { transform: scale(1.035); }
+  #design .service-card:hover a span { transform: translateX(3px); }
+  #design .idea-photo:hover img { transform: scale(1.035); }
 }

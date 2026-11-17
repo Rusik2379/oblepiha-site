@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /editor.html
+Disallow: /api/
+Disallow: /site-data/
+Disallow: /tools/
+Disallow: /shared/
 
-Sitemap: https://облепиха22.рф/sitemap.xml
+Sitemap: https://oblepiha-22.ru/sitemap.xml

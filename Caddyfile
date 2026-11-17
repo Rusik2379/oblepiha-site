@@ -1,0 +1,13 @@
+oblepiha-22.ru {
+    encode zstd gzip
+    @homeFile path /index.html
+    redir @homeFile / 308
+    reverse_proxy site:3000 {
+        # Caddy is the only public entry point; overwrite any client-supplied IP.
+        header_up X-Real-IP {remote_host}
+    }
+}
+
+www.oblepiha-22.ru {
+    redir https://oblepiha-22.ru{uri} 308
+}

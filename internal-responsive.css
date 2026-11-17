@@ -330,3 +330,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #fd7702; outline-offs
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+/* Lower story photographs keep their original proportions on phones as well. */
+:is(#cafeDesign, #banquetDesign, #saunaDesign) .service-story > .service-content-photo {
+  height: auto; aspect-ratio: auto; object-fit: contain;
+}

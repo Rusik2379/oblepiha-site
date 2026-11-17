@@ -1,0 +1,170 @@
+/* The two existing promotional posters, adapted to the available screen. */
+#design .winter-promo, #design .partners-promo { overflow: clip; }
+#design .partners-promo::before, #design .partners-promo::after { pointer-events: none; }
+
+@media (min-width: 1000px) {
+  #design .winter-promo, #design .partners-promo {
+    padding: 28px max(48px, calc((100vw - 1640px) / 2)) 32px !important;
+    min-height: calc(100svh - var(--header-height) - 20px);
+    align-content: center; gap: 18px 24px;
+  }
+  #design .winter-promo-script { font-size: 64px; margin: 0 0 10px 16px; letter-spacing: .02em; }
+  #design .winter-promo-script br { display: none; }
+  #design .winter-promo-script span:last-of-type::before { content: ' '; }
+  #design .winter-promo-title { max-width: 680px; font-size: 50px !important; line-height: 1.02 !important; }
+  #design .winter-promo-photo { height: 470px !important; object-position: center 40%; }
+  #design .winter-promo-fade {
+    background: linear-gradient(90deg, #fff5eb 12%, #fff5ebec 35%, #fff5eb00 72%), linear-gradient(180deg, #fff5eb44, transparent 70px, transparent 250px, #fff5eb 470px) !important;
+  }
+  #design .winter-agency-badge { min-height: 74px; padding: 14px 24px 14px 78px !important; border-radius: 20px; }
+  #design .winter-agency-badge img { top: 17px; left: 24px; }
+  #design .winter-agency-badge strong { font-size: 17px !important; }
+  #design .winter-info-card { flex-direction: row; align-items: center; gap: 24px; padding: 24px !important; border-radius: 24px; }
+  #design .winter-info-card > img { flex: 0 0 72px; width: 72px !important; height: 72px !important; margin: 0; }
+  #design .winter-info-card strong { font-size: 22px !important; line-height: 1.35 !important; }
+  #design .winter-info-card p { margin-top: 12px; font-size: 18px !important; }
+  #design .winter-tea-card { min-height: 192px !important; padding: 24px 200px 24px 78px !important; border-radius: 24px !important; }
+  #design .winter-tea-gift { left: 20px !important; top: 26px !important; width: 40px !important; height: 40px !important; }
+  #design .winter-tea-card p { width: 100%; font-size: 25px !important; }
+  #design .winter-tea-card strong { display: block; margin-top: 12px; font-size: 20px !important; }
+  #design .winter-tea-photo-wrap { width: 185px !important; inset: 4px 8px auto auto !important; }
+  #design .winter-ski-card { grid-template-columns: 1.9fr 1fr; gap: 24px; padding: 22px 28px !important; border-radius: 24px !important; }
+  #design .winter-ski-main { grid-template-columns: 100px 1fr !important; gap: 8px 24px !important; align-content: center; }
+  #design .winter-ski-main > img { grid-row: 1 / 4; align-self: center; }
+  #design .winter-ski-main p { font-size: 16px !important; }
+  #design .winter-ski-main p br, #design .winter-ski-main span br { display: none; }
+  #design .winter-ski-main strong { grid-column: 2; font-size: 29px !important; }
+  #design .winter-ski-main span { grid-column: 2; font-size: 17px !important; }
+  #design .winter-ski-location { flex-direction: row; padding: 8px 0 8px 24px !important; gap: 20px; }
+  #design .winter-ski-location img { width: 38px !important; height: 48px !important; }
+  #design .winter-ski-location p { font-size: 18px !important; }
+
+  #design .partners-promo { gap: 14px 40px; }
+  #design .partners-logo-mini { height: 44px; }
+  #design .partners-logo-mini b { font-size: 27px; }
+  #design .partners-logo-mini img { width: 54px !important; height: 44px; }
+  #design .partners-copy { max-width: 760px; justify-self: center; }
+  #design .partners-kicker-row span { font-size: 17px !important; }
+  #design .partners-kicker-row img { width: 64px !important; height: 34px; }
+  #design .partners-copy h2 { font-size: 44px !important; }
+  #design .partners-copy h3 { font-size: 36px !important; }
+  #design .partners-rule { margin: 14px 0; }
+  #design .partners-coop { font-size: 26px !important; margin-top: 8px; }
+  #design .partners-for { font-size: 17px !important; margin-top: 14px; }
+  #design .partners-visual { width: min(100%, 350px); max-width: none; height: 280px; aspect-ratio: auto; }
+  #design .partners-photo-exterior { width: 80% !important; }
+  #design .partners-photo-room { width: 85% !important; top: 28%; right: 12%; }
+  #design .partners-visual .partners-discount { width: 160px !important; min-width: 0; }
+  #design .partners-discount span { font-size: 14px !important; }
+  #design .partners-discount strong { font-size: 48px !important; }
+  #design .partners-discount small { font-size: 12px !important; }
+  #design .partners-how { width: 285px !important; height: auto; margin: 0 auto 4px; }
+  #design .partners-steps { padding-top: 0; gap: 24px !important; }
+  #design .partner-step { padding: 22px 22px 22px 82px !important; border-radius: 22px; border-width: 1px; background: #fff8f0; }
+  #design .partner-step > img { top: 18px !important; left: 18px; transform: none; width: 48px !important; height: 48px !important; box-shadow: none; background: transparent; }
+  #design .partner-step h4, #design .partner-step:first-child h4 { font-size: 21px !important; line-height: 1.2; }
+  #design .partner-step p { font-family: Arial, sans-serif; font-size: 17px !important; line-height: 1.45 !important; margin-top: 12px; }
+  #design .partners-benefit-heading { margin-top: 4px; }
+  #design .partners-benefit-heading h3 { font-size: 25px !important; }
+  #design .partners-benefit { flex-direction: row; align-items: center; gap: 16px; padding: 8px !important; }
+  #design .partners-benefit img { width: 48px !important; height: 48px !important; flex-shrink: 0; }
+  #design .partners-benefit strong { font-size: 18px !important; }
+  #design .partners-benefit span { font-size: 16px !important; }
+  #design .partners-phone { min-height: 64px; padding: 8px 20px !important; font-size: 25px !important; }
+  #design .partners-contact-item img { width: 38px; height: 42px; }
+  #design .partners-contact-address { font-size: 20px; }
+}
+@media (min-width: 1000px) and (max-width: 1399px) {
+  #design .winter-tea-card { padding-left: 24px !important; padding-right: 155px !important; }
+  #design .winter-tea-gift { display: none; }
+  #design .winter-tea-photo-wrap { width: 145px !important; top: 22px !important; }
+  #design .winter-info-card { gap: 16px; }
+  #design .winter-info-card strong { font-size: 19px !important; }
+  #design .partner-step { padding: 18px !important; }
+  #design .partner-step > img { display: block; position: static; margin: 0 0 12px; }
+  #design .partner-step h4, #design .partner-step:first-child h4 { font-size: 19px !important; }
+}
+@media (min-width: 1000px) and (max-height: 900px) {
+  #design .winter-promo, #design .partners-promo { padding-block: 20px !important; gap: 12px 24px; }
+  #design .winter-promo-script { font-size: 48px; margin-bottom: 4px; }
+  #design .winter-promo-title { font-size: 38px !important; }
+  #design .winter-tea-card { min-height: 160px !important; padding-block: 18px !important; }
+  #design .winter-ski-card { padding: 16px 24px !important; }
+  #design .partners-logo-mini { height: 36px; }
+  #design .partners-logo-mini b { font-size: 24px; }
+  #design .partners-logo-mini img { height: 36px; }
+  #design .partners-copy h2 { font-size: 36px !important; }
+  #design .partners-copy h3 { font-size: 28px !important; }
+  #design .partners-coop { font-size: 22px !important; }
+  #design .partners-for { font-size: 16px !important; margin-top: 10px; }
+  #design .partners-rule { margin-block: 10px; }
+  #design .partners-visual { width: 280px; height: 220px; }
+  #design .partners-visual .partners-discount { width: 132px !important; }
+  #design .partners-discount span { font-size: 12px !important; }
+  #design .partners-discount strong { font-size: 40px !important; }
+  #design .partners-discount small { font-size: 10px !important; }
+  #design .partners-how { width: 235px !important; }
+  #design .partner-step { padding: 16px !important; }
+  #design .partner-step > img { position: absolute; width: 36px !important; height: 36px !important; inset: 16px auto auto 16px; margin: 0; }
+  #design .partner-step h4, #design .partner-step:first-child h4 { font-size: 18px !important; margin: 0 0 0 70px; width: calc(100% - 70px); min-height: 43px; }
+  #design .partner-step p { font-size: 15px !important; line-height: 1.4 !important; margin: 12px 0 0; }
+  #design .partners-benefit-heading h3 { font-size: 22px !important; }
+  #design .partners-benefit { gap: 12px; padding: 0 !important; }
+  #design .partners-benefit img { width: 40px !important; height: 40px !important; }
+  #design .partners-benefit strong { font-size: 16px !important; }
+  #design .partners-benefit span { font-size: 15px !important; }
+  #design .partners-phone { min-height: 56px; }
+  #design .partners-promo { padding-block: 16px !important; row-gap: 8px; }
+  #design .partners-logo-mini { height: 30px; }
+  #design .partners-logo-mini b { font-size: 22px; }
+  #design .partners-logo-mini img { height: 30px; }
+  #design .partners-how { width: 205px !important; }
+  #design .partners-benefit-heading { margin-top: 0; }
+  #design .partners-benefit br { display: none; }
+}
+@media (max-width: 359px) {
+  #design .partners-discount span { font-size: 12px !important; line-height: 1.15; }
+  #design .partners-discount strong { font-size: 44px !important; }
+  #design .partners-discount small { font-size: 11px !important; }
+}
+
+@media (max-width: 999px) {
+  #design .winter-promo, #design .partners-promo { padding-block: 36px 44px !important; gap: 22px; }
+  #design .winter-promo-script { margin: 4px 0 16px 10px; font-size: clamp(50px, 13vw, 74px); }
+  #design .winter-promo-title { font-size: clamp(40px, 10vw, 58px) !important; line-height: 1.04 !important; }
+  #design .winter-promo-fade { background: linear-gradient(90deg, #fff5ebf5, #fff5ebc9 55%, #fff5eb55), linear-gradient(180deg, #fff5eb, transparent 100px, transparent 380px, #fff5eb 620px) !important; }
+  #design .winter-agency-badge { min-height: 86px; padding: 20px 18px 20px 72px !important; border-radius: 20px; }
+  #design .winter-agency-badge img { top: calc(50% - 20px); left: 20px; }
+  #design .winter-info-card { padding: 24px !important; border-radius: 24px; }
+  #design .winter-info-card > img { width: 48px !important; height: 48px !important; margin-bottom: 16px; }
+  #design .winter-info-card strong { font-size: 21px !important; }
+  #design .winter-info-card p { font-size: 17px !important; }
+  #design .winter-tea-card { margin: 0; padding: 148px 24px 24px !important; min-height: 0 !important; border-radius: 24px !important; }
+  #design .winter-tea-gift { top: 24px !important; }
+  #design .winter-tea-card p { width: 100%; font-size: 26px !important; }
+  #design .winter-tea-card strong { display: block; margin-top: 18px; font-size: clamp(19px, 5vw, 23px) !important; }
+  #design .winter-tea-photo-wrap { width: 132px !important; inset: -4px 8px auto auto !important; }
+  #design .winter-ski-card { border-radius: 24px !important; }
+  #design .winter-ski-main strong { font-size: clamp(25px, 7vw, 34px) !important; }
+  #design .winter-ski-main span { font-size: 17px !important; }
+  #design .winter-ski-main p br { display: none; }
+  #design .winter-ski-location { gap: 16px; }
+  #design .winter-ski-location p { font-size: 17px !important; }
+  #design .partners-copy h3 { font-size: clamp(28px, 7.5vw, 40px) !important; }
+  #design .partners-rule { margin: 16px 0; }
+  #design .partners-coop { margin-top: 10px; }
+  #design .partners-for { font-size: 17px !important; margin-top: 18px; }
+  #design .partners-visual { max-width: 400px; }
+  #design .partners-how { width: min(320px, 100%) !important; margin: 4px auto; }
+  #design .partners-steps { padding-top: 0; gap: 16px !important; grid-template-columns: 1fr; }
+  #design .partner-step { padding: 24px !important; border-width: 1px; border-radius: 24px !important; background: #fff8f0; }
+  #design .partner-step > img { position: static; display: block; transform: none; width: 48px !important; height: 48px !important; margin: 0 0 16px; box-shadow: none; background: transparent; }
+  #design .partner-step h4, #design .partner-step:first-child h4 { font-size: 22px !important; }
+  #design .partner-step p { font-family: Arial, sans-serif; font-size: 17px !important; margin-top: 12px; }
+  #design .partners-benefit-heading { margin-top: 8px; }
+  #design .partners-benefit-heading h3 { white-space: normal; font-size: 23px !important; }
+  #design .partners-benefit { padding-block: 8px !important; }
+  #design .partners-benefit img { width: 54px !important; height: 54px !important; }
+  #design .partners-benefit strong { font-size: 18px !important; }
+  #design .partners-benefit span { font-size: 16px !important; }
+}
