@@ -1,8 +1,8 @@
 // Same approved copy and photographs, two local compositions.
 export function introSection(variant,{img,arrow}){
- const heading='<h2>Ваш отдых<br><em>в «Облепихе».</em></h2>';
- const lead='<p class="intro-variant-lead">Гостиница, кафе и место для встреч в Новоалтайске.</p>';
- const story='<p class="intro-variant-story">Приезжайте переночевать после дороги, остановиться на время командировки или провести несколько дней с близкими. В комплексе можно поесть, отдохнуть в сауне с джакузи и устроить семейное или деловое событие.</p>';
+ const heading='<h2>Ваш отдых<br><em>в «Облепихе»</em></h2>';
+ const lead='<p class="intro-variant-lead">Гостиница, кафе и место для встреч в Новоалтайске</p>';
+ const story='<p class="intro-variant-story">Приезжайте переночевать после дороги, остановиться на время командировки или провести несколько дней с близкими. В комплексе можно поесть, отдохнуть в сауне с джакузи и устроить семейное или деловое событие</p>';
  const address='<a class="intro-address" href="#contacts">Новоалтайск, Дорожная, 13 '+arrow+'</a>';
  const facts='<div class="intro-facts"><div><strong>26</strong><span>номеров в гостинице</span></div><div><strong>24/7</strong><span>стойка размещения</span></div><div class="intro-fact-parking"><span class="intro-parking-symbol" aria-hidden="true"><svg viewBox="0 0 40 40" focusable="false"><rect x="3" y="3" width="34" height="34" rx="7"/><path d="M15 28V12h7a5 5 0 0 1 0 10h-7"/></svg></span><div class="intro-parking-copy"><strong>Бесплатная парковка</strong><span>Для гостей гостиницы</span></div></div></div>';
  const facade=img('about-hotel.jpg','Фасад гостиничного комплекса «Облепиха»');

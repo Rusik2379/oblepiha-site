@@ -21,6 +21,34 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
   addEventListener('resize',()=>{if(innerWidth>1000)setMenu(false);},{passive:true});
   document.addEventListener('click',e=>{if(header.classList.contains('menu-open') && !header.contains(e.target))setMenu(false);});
+  $$('[data-stay-tabs]').forEach(explorer=>{
+    const tabs=$$('[role="tab"]',explorer), panels=$$('[role="tabpanel"]',explorer);
+    const tablist=$('[role="tablist"]',explorer);
+    const compact=matchMedia('(max-width: 800px)');
+    const setOrientation=()=>tablist.setAttribute('aria-orientation',compact.matches?'horizontal':'vertical');
+    setOrientation();compact.addEventListener('change',setOrientation);
+    function selectTab(tab,focus=false){
+      tabs.forEach(item=>{
+        const selected=item===tab;
+        item.setAttribute('aria-selected',String(selected));
+        item.tabIndex=selected?0:-1;
+      });
+      panels.forEach(panel=>{panel.hidden=panel.id!==tab.getAttribute('aria-controls');});
+      if(focus)tab.focus();
+    }
+    tabs.forEach((tab,index)=>{
+      tab.addEventListener('click',()=>selectTab(tab));
+      tab.addEventListener('keydown',event=>{
+        const next=compact.matches?'ArrowRight':'ArrowDown',prev=compact.matches?'ArrowLeft':'ArrowUp';
+        let target;
+        if(event.key===next)target=(index+1)%tabs.length;
+        else if(event.key===prev)target=(index-1+tabs.length)%tabs.length;
+        else if(event.key==='Home')target=0;
+        else if(event.key==='End')target=tabs.length-1;
+        if(target!==undefined){event.preventDefault();selectTab(tabs[target],true);}
+      });
+    });
+  });
   const dialogs=$$('dialog');
   function openDialog(dialog){dialogs.forEach(d=>{if(d.open)d.close();});setMenu(false);dialog.showModal();document.body.classList.add('modal-open');}
   dialogs.forEach(dialog=>{
@@ -40,6 +68,11 @@
       }
       dialogs.forEach(dialog=>{if(dialog.open)dialog.close();});
       setMenu(false);
+      if(bookingLink.hasAttribute('data-category-quick-booking') && window.OBLEPIHA_BOOKING?.openRoom(bookingLink.getAttribute('data-tl-room'))) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
       // TravelLine binds links once. Forward dynamic details to the same static room link.
       const roomProxy=bookingLink.hasAttribute('data-tl-dynamic') && document.getElementById('tl-room-'+bookingLink.getAttribute('data-tl-room'));
       if(roomProxy) {

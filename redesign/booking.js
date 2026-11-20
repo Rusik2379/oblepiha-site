@@ -7,6 +7,23 @@
   const integration = (w.travelline = w.travelline || {}).integration =
     w.travelline.integration || {};
   integration.__cq = integration.__cq ? integration.__cq.concat(queue) : queue;
+  // Fresh dates and occupancy override TravelLine's remembered search for room CTAs.
+  w.OBLEPIHA_BOOKING = {
+    openRoom(roomId) {
+      if (!/^\d+$/.test(String(roomId))) return false;
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Barnaul', year: 'numeric', month: '2-digit', day: '2-digit'
+      }).formatToParts(new Date()).map(part => [part.type, part.value]));
+      const command = ['embed', 'booking-form-modal', {
+        room: String(roomId), date: parts.year + '-' + parts.month + '-' + parts.day,
+        nights: 1, adults: 1, childrenAge: '', isBookingModal: true
+      }];
+      const commands = integration.__cq;
+      if (Array.isArray(commands)) commands.push(command);
+      else commands.push(...command);
+      return true;
+    }
+  };
   if (integration.__loader) return;
   integration.__loader = true;
   const hosts = ['ru-ibe.tlintegration.ru', 'ibe.tlintegration.ru', 'ibe.tlintegration.com'];
