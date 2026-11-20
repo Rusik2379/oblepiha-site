@@ -21,6 +21,19 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
   addEventListener('resize',()=>{if(innerWidth>1000)setMenu(false);},{passive:true});
   document.addEventListener('click',e=>{if(header.classList.contains('menu-open') && !header.contains(e.target))setMenu(false);});
+  $$('[data-sauna-gallery]').forEach(gallery=>{
+    const photo=$('img',gallery),buttons=$$('[data-sauna-photo]',gallery);
+    const photos={
+      jacuzzi:['../assets/sauna-page/slide-03.webp','Джакузи и комната отдыха в сауне Облепихи'],
+      steam:['../assets/sauna-page/slide-01.webp','Финская парная гостиничного комплекса Облепиха']
+    };
+    buttons.forEach(button=>button.addEventListener('click',()=>{
+      const selected=photos[button.dataset.saunaPhoto];
+      if(!selected)return;
+      photo.src=selected[0];photo.alt=selected[1];
+      buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+    }));
+  });
   $$('[data-stay-tabs]').forEach(explorer=>{
     const tabs=$$('[role="tab"]',explorer), panels=$$('[role="tabpanel"]',explorer);
     const tablist=$('[role="tablist"]',explorer);
@@ -84,7 +97,6 @@
   },{capture:true});
   // Each carousel contains photos only from its own room category.
   $$('[data-category-carousel]').forEach(carousel=>{
-    const card=carousel.closest('.category-card');
     const seen=new Set();
     const photos=rooms.filter(r=>r.category===carousel.dataset.categoryCarousel).flatMap(r=>r.photos.filter(src=>{if(seen.has(src))return false;seen.add(src);return true;}).map(src=>({src,room:r})));
     if(!photos.length)return;
@@ -128,7 +140,7 @@
           image=nextImage;index=nextIndex;
           count.textContent=(index+1)+' / '+photos.length;
           carousel.dataset.photoIndex=String(index);
-          $$('[data-category-booking]',card).forEach(link=>link.setAttribute('data-tl-room',photos[index].room.id));
+          // Booking links keep the whole group; changing the photo does not narrow it.
           preloadNeighbours();
         }
       }catch(error){

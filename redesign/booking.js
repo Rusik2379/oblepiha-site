@@ -10,12 +10,14 @@
   // Fresh dates and occupancy override TravelLine's remembered search for room CTAs.
   w.OBLEPIHA_BOOKING = {
     openRoom(roomId) {
-      if (!/^\d+$/.test(String(roomId))) return false;
+      // TravelLine accepts a comma-separated roomTypes filter for a category group.
+      const roomIds = String(roomId);
+      if (!/^\d+(?:,\d+)*$/.test(roomIds)) return false;
       const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
         timeZone: 'Asia/Barnaul', year: 'numeric', month: '2-digit', day: '2-digit'
       }).formatToParts(new Date()).map(part => [part.type, part.value]));
       const command = ['embed', 'booking-form-modal', {
-        room: String(roomId), date: parts.year + '-' + parts.month + '-' + parts.day,
+        room: roomIds, date: parts.year + '-' + parts.month + '-' + parts.day,
         nights: 1, adults: 1, childrenAge: '', isBookingModal: true
       }];
       const commands = integration.__cq;
