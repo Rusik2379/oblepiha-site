@@ -2,7 +2,7 @@
 @font-face{font-family:Welcome Cormorant;src:url('cormorant-garamond-italic.ttf') format('truetype');font-style:italic;font-weight:300 700;font-display:swap}
 @font-face{font-family:Welcome Manrope;src:url('manrope.ttf') format('truetype');font-style:normal;font-weight:200 800;font-display:swap}
 
-body[data-welcome-variant] .hero{min-height:760px}
+body[data-welcome-variant] .hero{height:auto;min-height:max(760px,100svh)}
 body[data-welcome-variant] .hero-visual::after{background:linear-gradient(90deg,#201b17a8 0%,#201b1736 58%,#201b1705 100%),linear-gradient(0deg,#201b1773,transparent 45%,#201b1730)}
 body[data-welcome-variant] .hero .hero-content{padding-top:calc(var(--header) + 30px);padding-bottom:30px}
 body[data-welcome-variant] .hero-content>.eyebrow{font-size:10px;letter-spacing:.2em;color:#f4eadd;margin-bottom:25px}
@@ -13,6 +13,11 @@ body[data-welcome-variant] .hero .hero-scroll{display:inline-flex;align-items:ce
 body[data-welcome-variant] .hero .hero-scroll>span:last-child{font-size:22px;line-height:1}
 body[data-welcome-variant] .hero-side{display:none}
 body[data-welcome-variant] .hero .booking-bar--travelline{width:min(1320px,calc(100% - 2 * var(--gutter)));margin-bottom:36px;padding:19px 25px;border:1px solid #f9f2e5;border-radius:12px;background:#fffaf3;box-shadow:0 12px 36px #130f152b}
+body[data-welcome-variant] .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px 30px;margin-top:26px}
+body[data-welcome-variant] .hero-actions .hero-book{display:inline-flex;align-items:center;gap:22px;min-height:52px;padding:12px 23px;border:1px solid #efd4b4;border-radius:999px;background:#efd4b4;color:#30251d;font-family:Welcome Manrope,Arial,sans-serif;font-size:14px;font-weight:600;line-height:1.4;transition:background .2s,border-color .2s}
+body[data-welcome-variant] .hero-book svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+body[data-welcome-variant] .hero-actions .hero-book:hover{background:#fff2e1;border-color:#fff2e1}
+body[data-welcome-variant] .hero-actions .hero-scroll{margin-top:0}
 
 body[data-welcome-variant=classic] .hero h1.welcome-title{font-family:Welcome Cormorant,Georgia,serif;font-weight:500;font-size:clamp(82px,8.1vw,140px);line-height:.98;letter-spacing:-.035em}
 body[data-welcome-variant=classic] .hero h1.welcome-title em{font-family:inherit;font-weight:500;font-style:italic;letter-spacing:-.03em;color:#f0d5b7;margin-top:4px}
@@ -29,7 +34,7 @@ body[data-welcome-variant] .welcome-title{animation-delay:.08s}
 body[data-welcome-variant] .hero-bottom{animation-delay:.18s}
 
 @media(min-width:1001px) and (max-height:850px){
- body[data-welcome-variant] .hero{min-height:670px}
+ body[data-welcome-variant] .hero{min-height:max(670px,100svh)}
  body[data-welcome-variant=classic] .hero h1.welcome-title{font-size:clamp(76px,7.5vw,112px)}
  body[data-welcome-variant=modern] .hero h1.welcome-title{font-size:clamp(62px,5.8vw,88px)}
  body[data-welcome-variant] .hero-content>.eyebrow{margin-bottom:20px}
@@ -51,6 +56,8 @@ body[data-welcome-variant] .hero-bottom{animation-delay:.18s}
  body[data-welcome-variant] .hero .hero-description{font-size:12px;line-height:1.85;max-width:440px}
  body[data-welcome-variant] .hero .hero-scroll{margin-top:22px;font-size:7px;gap:22px}
  body[data-welcome-variant] .hero .booking-bar--travelline{padding:16px 13px;margin-bottom:24px;border-radius:10px}
+ body[data-welcome-variant] .hero-actions{gap:18px;margin-top:24px}
+ body[data-welcome-variant] .hero-actions .hero-book{min-height:48px;padding:12px 19px;font-size:13px}
  .welcome-comparisonbar{padding-block:18px;font-size:11px}
  .welcome-comparisonbar nav{gap:18px}
 }
