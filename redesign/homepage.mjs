@@ -1,6 +1,7 @@
 import {staySection} from './stay.mjs';
 import {diningSection} from './dining.mjs';
 import {saunaServicesSection} from './sauna-services.mjs';
+import {eventsSection} from './events.mjs';
 // Local homepage. Copy is grounded in the filled owner questionnaire and site.
 // Missing terms stay questions for the administrator, rather than invented rules.
 export function homePage({img,arrow,label,rooms,newsCards}) {
@@ -28,7 +29,7 @@ export function homePage({img,arrow,label,rooms,newsCards}) {
 
  ${saunaServicesSection()}
 
- <section class="home-events section" id="events"><div class="wrap"><div class="section-heading"><h2>Для праздника.<br><em>Для важной встречи</em></h2><p class="section-description">Собрать близких или команду. Два направления для событий, с возможностью разместить гостей в гостинице</p></div><div class="event-grid"><a class="event-card" href="banquet.html">${img('banquet-page/slide-02.webp','Банкетный зал «Облепиха»')}<div class="event-card-copy"><span class="eyebrow">СВАДЬБЫ · ЮБИЛЕИ · КОРПОРАТИВЫ</span><h3>Банкетный зал</h3><p>До 120 гостей. Место для семейных торжеств, выпускных и праздничных вечеров</p><span class="event-card-link">Обсудить торжество ${arrow}</span></div></a><a class="event-card" href="conference.html">${img('conference-page/slide-01.webp','Конференц-зал «Облепиха»')}<div class="event-card-copy"><span class="eyebrow">КОНФЕРЕНЦИИ · ОБУЧЕНИЕ · ПРЕЗЕНТАЦИИ</span><h3>Конференц-зал</h3><p>До 120 участников, разные рассадки и Wi-Fi. Формат и оборудование обсудим заранее</p><span class="event-card-link">Подробнее о зале ${arrow}</span></div></a></div><div class="events-contact"><p>Дата, меню, размещение гостей и детали мероприятия — по телефону</p><a href="tel:+79640819904">+7 964 081-99-04 ${arrow}</a></div></div></section>
+ ${eventsSection()}
 
  <section class="reviews section wrap home-reviews" id="reviews"><div class="section-heading"><h2>Отзывы<br><em>о «Облепихе»</em></h2><div class="review-links"><a class="text-link" href="https://2gis.ru/novoaltajsk/firm/563479234723565/tab/reviews" target="_blank" rel="noopener">Больше отзывов в 2ГИС ${arrow}</a><a class="text-link" href="https://yandex.ru/maps/org/oblepikha/24483320354/reviews/" target="_blank" rel="noopener">Яндекс Карты ${arrow}</a></div></div><div class="review-images"><a href="https://2gis.ru/novoaltajsk/firm/563479234723565/tab/reviews" target="_blank" rel="noopener">${img('reviews-final/review-01-sachkova.webp','Оригинальный отзыв Татьяны Сачковой о гостинице и кафе')}</a><a href="https://2gis.ru/novoaltajsk/firm/563479234723565/tab/reviews" target="_blank" rel="noopener">${img('reviews-final/review-05-petrochenko.webp','Оригинальный отзыв Татьяны Петроченко о зале и сервисе')}</a></div></section>
 

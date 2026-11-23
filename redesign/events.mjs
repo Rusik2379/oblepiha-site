@@ -1,0 +1,11 @@
+// Two event formats share the same editorial scale as rooms and dining.
+export function eventsSection(){
+ const arrow='<span class="event-button-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>';
+ return `<section class="home-events section" id="events"><div class="events-content wrap">
+<div class="events-header"><h2>Для праздника<br><em>и важной встречи</em></h2><p>Собрать близких или команду —<br>и остаться в гостинице после события</p></div>
+<div class="event-grid">
+<article class="event-card"><a class="event-photo" href="banquet.html" aria-label="Посмотреть банкетный зал"><img src="../assets/banquet-page/slide-02.webp" alt="Банкетный зал Облепихи с праздничной сервировкой и танцполом" loading="lazy" decoding="async" width="1920" height="1080"></a><div class="event-copy"><div class="event-title"><h3><a href="banquet.html">Банкетный зал</a></h3><span>До 120 гостей</span></div><p class="event-formats">Свадьбы · юбилеи · корпоративы</p><p class="event-description">Зал для семейного праздника, выпускного или торжественного вечера. Меню и детали обсудим с вами заранее</p><a class="event-button" href="banquet.html">О банкетном зале${arrow}</a></div></article>
+<article class="event-card"><a class="event-photo" href="conference.html" aria-label="Посмотреть конференц-зал"><img src="../assets/conference-page/slide-01.webp" alt="Конференц-зал Облепихи с экраном и рассадкой для деловой встречи" loading="lazy" decoding="async" width="1920" height="1080"></a><div class="event-copy"><div class="event-title"><h3><a href="conference.html">Конференц-зал</a></h3><span>До 120 участников</span></div><p class="event-formats">Конференции · обучение · презентации</p><p class="event-description">Пространство для рабочих встреч с разными вариантами рассадки и Wi-Fi. Формат и оборудование обсудим заранее</p><a class="event-button" href="conference.html">О конференц-зале${arrow}</a></div></article>
+</div><div class="events-contact"><p>Обсудим дату, формат и размещение гостей</p><a href="tel:+79640819904"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-3 2a14 14 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2C10 21 3 14 3 5a2 2 0 0 1 2-2Z"/></svg>+7 964 081-99-04</a></div>
+</div></section>`;
+}
