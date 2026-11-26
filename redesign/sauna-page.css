@@ -1,0 +1,89 @@
+@font-face {
+  font-family: Sauna Manrope;
+  src: url('manrope.ttf') format('truetype');
+  font-weight: 200 800;
+  font-display: swap;
+}
+.sauna-page {
+  --sauna-ink: #332b24;
+  --sauna-accent: #9a5735;
+  --sauna-line: #d9c8b7;
+  background: #f8f3eb;
+  color: var(--sauna-ink);
+  font: 16px/1.75 'Sauna Manrope', Arial, sans-serif;
+}
+.sauna-page .wrap { max-width: 1480px; }
+.sauna-page h1, .sauna-page h2 {
+  font-family: 'Footer Cormorant', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+.sauna-page h1 em, .sauna-page h2 em { color: var(--sauna-accent); font-style: italic; }
+.sauna-hero {
+  background: #29231e;
+  color: #fbf2e6;
+  padding-block: calc(var(--header) + clamp(34px, 6vw, 106px)) clamp(48px, 6vw, 98px);
+}
+.sauna-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 90px);
+}
+.sauna-crumb { display: flex; flex-wrap: wrap; gap: 12px; color: #e3c7a9; font-size: 13px; margin-bottom: 25px; }
+.sauna-crumb a:hover { text-decoration: underline; }
+.sauna-hero h1 { font-size: clamp(64px, 7vw, 116px); line-height: .92; }
+.sauna-hero h1 em { display: block; color: #edc49b; margin-top: .08em; }
+.sauna-hero-copy p { max-width: 460px; margin-top: 23px; color: #eee1d3; }
+.sauna-hero-image { width: 100%; height: clamp(380px, 34vw, 580px); object-fit: cover; border-radius: 8px; }
+.sauna-page-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; }
+.sauna-hero .sauna-page-actions { margin-top: 30px; }
+.sauna-page-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 52px;
+  padding: 5px 6px 5px 20px;
+  border-radius: 100px;
+  background: #efcfad;
+  color: #29231e;
+  font-size: 15px;
+  font-weight: 600;
+}
+.sauna-page-button > span { display: grid; place-items: center; border-radius: 50%; width: 40px; height: 40px; background: #523e31; color: #fff5e8; font-size: 18px; }
+.sauna-page-button:hover { background: #f7e2c8; }
+.sauna-page-link { display: inline-flex; align-items: center; gap: 10px; border-bottom: 1px solid currentColor; font-size: 14px; line-height: 1.7; }
+.sauna-page-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.sauna-page-section { padding-block: clamp(48px, 6vw, 92px); }
+.sauna-page h2 { font-size: clamp(46px, 5vw, 78px); line-height: .98; }
+.sauna-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px 35px; margin-bottom: 34px; }
+.sauna-section-heading p { max-width: 350px; font-size: 15px; color: #6d5c4c; }
+.sauna-price-list { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); margin: 0; border-block: 1px solid var(--sauna-line); }
+.sauna-price-list > div { padding: 21px clamp(18px, 3vw, 48px); }
+.sauna-price-list > div + div { border-inline-start: 1px solid var(--sauna-line); }
+.sauna-price-list dt { color: #6d5c4c; font-size: 15px; }
+.sauna-price-list dd { margin: 0; color: var(--sauna-accent); font: 500 clamp(44px, 5vw, 76px)/1.12 'Footer Cormorant', Georgia, serif; white-space: nowrap; }
+.sauna-interiors { background: #eee3d5; }
+.sauna-page-gallery { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(18px, 2.5vw, 38px); }
+.sauna-page-gallery figure { margin: 0; }
+.sauna-page-gallery button { display: block; position: relative; width: 100%; padding: 0; overflow: hidden; border-radius: 7px; }
+.sauna-page-gallery img { display: block; width: 100%; height: auto; }
+.sauna-page-gallery button span { display: grid; place-items: center; position: absolute; right: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 50%; color: #29231e; background: #fff5e8; }
+.sauna-page-gallery button:hover span { background: #efcfad; }
+.sauna-page-gallery figcaption { margin-top: 12px; font-weight: 600; font-size: 15px; }
+.sauna-visit { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 28px 40px; }
+.sauna-visit address { font-style: normal; font-size: 18px; font-weight: 600; margin: 16px 0 5px; }
+.sauna-visit p { margin-bottom: 10px; }
+@media (max-width: 850px) {
+  .sauna-hero-inner { grid-template-columns: 1fr; }
+  .sauna-hero-image { height: auto; }
+  .sauna-section-heading { display: grid; }
+}
+@media (max-width: 600px) {
+  .sauna-hero h1 { font-size: clamp(52px, 11.5vw, 70px); }
+  .sauna-price-list, .sauna-page-gallery { grid-template-columns: 1fr; }
+  .sauna-price-list > div { padding: 13px 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .sauna-price-list > div + div { border-inline-start: 0; border-top: 1px solid var(--sauna-line); }
+  .sauna-price-list dd { font-size: 40px; }
+}
