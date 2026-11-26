@@ -21,6 +21,34 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false);});
   addEventListener('resize',()=>{if(innerWidth>1000)setMenu(false);},{passive:true});
   document.addEventListener('click',e=>{if(header.classList.contains('menu-open') && !header.contains(e.target))setMenu(false);});
+  $$('[data-review-carousel]').forEach(carousel=>{
+    const track=$('[data-review-track]',carousel), slides=$$('figure',track);
+    const prev=$('[data-review-step="-1"]',carousel),next=$('[data-review-step="1"]',carousel);
+    const count=$('[data-review-count]',carousel), compact=matchMedia('(max-width:700px)');
+    const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+    const offset=slide=>slide.getBoundingClientRect().left-track.getBoundingClientRect().left+track.scrollLeft;
+    let frame;
+    function update(){
+      const first=slides.reduce((best,slide,i)=>Math.abs(offset(slide)-track.scrollLeft)<Math.abs(offset(slides[best])-track.scrollLeft)?i:best,0);
+      const last=Math.min(slides.length,first+(compact.matches?1:2));
+      count.textContent=(last===first+1?String(first+1):`${first+1}–${last}`)+' из '+slides.length;
+      prev.disabled=track.scrollLeft<2;
+      next.disabled=track.scrollLeft>=track.scrollWidth-track.clientWidth-2;
+    }
+    function step(direction){
+      const first=slides.reduce((best,slide,i)=>Math.abs(offset(slide)-track.scrollLeft)<Math.abs(offset(slides[best])-track.scrollLeft)?i:best,0);
+      const target=Math.max(0,Math.min(slides.length-1,first+direction*(compact.matches?1:2)));
+      track.scrollTo({left:offset(slides[target]),behavior:reduced.matches?'instant':'smooth'});
+    }
+    prev.addEventListener('click',()=>step(-1));next.addEventListener('click',()=>step(1));
+    track.addEventListener('scroll',()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(update);},{passive:true});
+    track.addEventListener('keydown',e=>{
+      if(e.target!==track)return;
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();step(e.key==='ArrowRight'?1:-1);}
+    });
+    new ResizeObserver(update).observe(track);
+    update();
+  });
   $$('[data-sauna-gallery]').forEach(gallery=>{
     const photo=$('img',gallery),buttons=$$('[data-sauna-photo]',gallery);
     const photos={
