@@ -1,0 +1,83 @@
+/* Original guest reviews, without another frame around their own cards. */
+body[data-page=home] .home-reviews{padding-block:58px 60px;background:#eee5d8;font-family:'Welcome Manrope',Arial,sans-serif}
+.home-reviews .guest-content{max-width:1480px}
+.home-reviews .guest-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:30px}
+.home-reviews .guest-heading h2{font:500 clamp(52px,5.3vw,80px)/1.02 'Welcome Cormorant',Georgia,serif;letter-spacing:-.035em}
+.home-reviews .guest-heading h2 em{font-style:italic;font-weight:500;color:var(--clay)}
+.home-reviews .guest-heading>p{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:5px}
+.guest-reviews{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:end}
+.guest-reviews figure{min-width:0}
+.guest-review-image{display:flex;align-items:center;justify-content:center;min-height:300px}
+.guest-review-image img{width:100%;height:clamp(250px,25vw,340px);object-fit:contain;transition:transform .3s;filter:drop-shadow(0 8px 12px #3c2b1910)}
+.guest-review-image:hover img{transform:translateY(-4px)}
+.guest-reviews figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:15px;margin-top:18px;padding-top:16px;border-top:1px solid #cebeaa;font-size:13px;line-height:1.6}
+.guest-reviews figcaption>span:last-child{font-size:12px;color:var(--muted)}
+.guest-reviews-footer{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:30px;margin-top:30px}
+.guest-more{display:flex;align-items:center;gap:14px;color:#8c6447;font:italic 500 26px/1.1 'Welcome Cormorant',Georgia,serif}
+.guest-more svg{width:84px;height:38px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.guest-review-platforms{display:flex;gap:12px;flex-wrap:wrap}
+.guest-review-platforms a{display:inline-flex;align-items:center;gap:12px;min-height:50px;padding:6px 17px 6px 6px;border:1px solid #cbb99f;border-radius:99px;font-size:14px;background:#f8f2e9;transition:background .2s}
+.guest-review-platforms a:hover{background:#fffaf1}
+.review-platform-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#332b24;color:#fff8ec;font:500 23px/1 'Welcome Cormorant',Georgia,serif}
+.guest-review-platforms a>svg{width:19px;height:19px;margin-left:4px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+/* Four vertical posters stay together on desktop; smaller screens have a rail. */
+body[data-page=home] .home-news{padding-block:38px 42px;max-width:1280px;font-family:'Welcome Manrope',Arial,sans-serif}
+body[data-page=home] .home-news .section-heading{align-items:baseline;gap:24px;margin-bottom:26px}
+body[data-page=home] .home-news h2{font:500 clamp(44px,4.6vw,68px)/1.05 'Welcome Cormorant',Georgia,serif;letter-spacing:-.035em}
+.home-news h2 em{font-style:italic;font-weight:500;color:var(--clay)}
+.home-news .section-heading>.text-link{flex:none;white-space:nowrap}
+.home-news .home-news-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px}
+.home-news .news-card{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0;border:0;min-width:0}
+.home-news .news-image{height:clamp(180px,30svh,260px);aspect-ratio:auto;flex:none;background:#eae0d2;border-radius:6px}
+.home-news .news-image img{object-fit:contain}
+.home-news .news-image .image-tag{font-size:9px;line-height:1.4;border-radius:99px;padding:6px 9px;background:#fff8ede8}
+.home-news .news-image>span:last-child{display:none}
+.home-news .news-card>div{display:flex;flex-direction:column;flex:1;padding-top:14px}
+.home-news .news-card>div>.eyebrow{font-size:9px;line-height:1.4;letter-spacing:.09em}
+.home-news .news-card h3{font-size:17px;line-height:1.5;letter-spacing:-.025em;min-height:51px;margin:8px 0 12px}
+.home-news .news-card h3 button{-webkit-line-clamp:2;line-clamp:2}
+.home-news .news-excerpt{display:none}
+.home-news .news-card .text-link{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;margin-top:auto;padding:7px 0;border-bottom:1px solid var(--line);font-size:12px}
+.news-rail-hint{display:none}
+/* Crisp SVG messenger marks use the same warm colours as the other controls. */
+.home-contact-details .home-socials{display:flex;align-items:center;flex-wrap:wrap;gap:18px 23px;margin-top:22px;font-family:'Welcome Manrope',Arial,sans-serif}
+.home-contact-details .home-socials a{display:inline-flex;align-items:center;gap:9px;font-size:13px;line-height:1.5}
+.home-socials .messenger-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#332b24;color:#fff8ec;flex:none;transition:background .2s,transform .2s}
+.messenger-icon svg{width:22px;height:22px;fill:currentColor}
+.home-socials a:hover .messenger-icon{background:#8e5b3a;transform:translateY(-2px)}
+@media(max-width:1100px){
+ .guest-reviews{gap:32px}
+ .guest-reviews figcaption{align-items:start;flex-direction:column;gap:4px}
+ .home-news .home-news-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 52px)/3);gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#bca082 transparent;padding-bottom:12px}
+ .home-news .news-card{scroll-snap-align:start}
+ .news-rail-hint{display:block;color:var(--muted);font-size:12px;margin-top:10px}
+ .home-news .news-card h3{font-size:16px;min-height:48px}
+}
+@media(max-width:700px){
+ body[data-page=home] .home-reviews{padding-block:46px 48px}
+ .home-reviews .guest-heading{display:block;margin-bottom:24px}
+ .home-reviews .guest-heading h2{font-size:clamp(46px,12vw,62px);line-height:1.02}
+ .home-reviews .guest-heading>p{font-size:14px;margin-top:18px}
+ .home-reviews .guest-heading>p br{display:none}
+ .guest-reviews{grid-template-columns:1fr;gap:28px}
+ .guest-review-image{min-height:0}
+ .guest-review-image img{height:auto;max-height:360px;width:100%}
+ .guest-reviews figcaption{margin-top:12px;padding-top:12px;font-size:12px}
+ .guest-reviews-footer{justify-content:flex-start;gap:16px;margin-top:28px}
+ .guest-more{font-size:25px}
+ .guest-more svg{width:65px}
+ .guest-review-platforms{gap:10px}
+ .guest-review-platforms a{gap:8px;min-height:46px;padding:5px 12px 5px 5px;font-size:12px}
+ .review-platform-mark{width:32px;height:32px;font-size:21px}
+ .guest-review-platforms a>svg{width:16px;margin-left:0}
+ body[data-page=home] .home-news{padding-block:40px}
+ body[data-page=home] .home-news .section-heading{align-items:start;flex-direction:column;gap:14px;margin-bottom:22px}
+ body[data-page=home] .home-news h2{font-size:clamp(43px,11.7vw,58px);line-height:1.03}
+ .home-news h2 em{display:block}
+ .home-news .section-heading>.text-link{padding:3px 0;font-size:12px}
+ .home-news .home-news-grid{grid-auto-columns:83%;gap:18px}
+ .home-news .news-image{height:clamp(190px,29svh,245px)}
+ .home-news .news-card h3{font-size:17px;min-height:51px}
+ .home-contact-details .home-socials{gap:16px 18px}
+ .home-contact-details .home-socials a{font-size:12px;gap:8px}
+}
