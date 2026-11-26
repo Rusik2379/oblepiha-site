@@ -71,7 +71,33 @@
 .site-footer-group a { color: #e2d1bf; font-size: 16px; }
 .site-footer-phone:hover, .site-footer-group a:hover, .site-footer-route:hover { color: #fff; }
 .site-footer-socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-.site-footer-socials a { padding: 5px 11px; border: 1px solid #c9aa9266; border-radius: 99px; font-size: 13px; }
+.site-footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 5px 11px 5px 6px;
+  border: 1px solid #c9aa9266;
+  border-radius: 99px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.site-footer-socials a:hover { background: #ffffff0d; }
+.site-footer-socials .messenger-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #efcfad;
+  color: #29231e;
+}
+.site-footer-socials .messenger-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
 .site-footer-bottom {
   display: flex;
   justify-content: space-between;
