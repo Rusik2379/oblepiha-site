@@ -28,22 +28,22 @@ body[data-page=home] .home-reviews{padding-block:58px 60px;background:#eee5d8;fo
 .guest-review-platforms .review-platform-icon{display:block;width:34px;height:34px;object-fit:contain;border-radius:8px}
 .guest-review-platforms a>svg{width:23px;height:19px;margin-left:4px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 /* Near-screen-height news, readable copy and posters with their own proportions. */
-body[data-page=home] .home-news{min-height:calc(100svh - var(--header));display:flex;flex-direction:column;justify-content:center;padding-block:52px 60px;max-width:1680px;font-family:'Welcome Manrope',Arial,sans-serif}
+body[data-page=home] .home-news{min-height:calc(100svh - 118px);display:flex;flex-direction:column;justify-content:center;padding-block:52px 60px;max-width:1680px;font-family:'Welcome Manrope',Arial,sans-serif}
 body[data-page=home] .home-news .section-heading{align-items:baseline;gap:24px;margin-bottom:34px}
 body[data-page=home] .home-news h2{font:500 clamp(48px,4.8vw,80px)/1.05 'Welcome Cormorant',Georgia,serif;letter-spacing:-.035em}
 .home-news h2 em{font-style:italic;font-weight:500;color:var(--clay)}
 .home-news .section-heading>.text-link{flex:none;white-space:nowrap;font-size:15px}
-.home-news .home-news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 56px}
-.home-news .news-card{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:28px;padding:0 0 24px;border:0;border-bottom:1px solid var(--line);min-width:0}
-.home-news .news-image{align-self:flex-start;display:flex;width:fit-content;max-width:100%;height:clamp(160px,22svh,220px);aspect-ratio:auto;flex:none;background:transparent;border-radius:6px}
-.home-news .news-image img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain}
+.home-news .home-news-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(22px,2.5vw,44px)}
+.home-news .news-card{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0 0 12px;border:0;border-bottom:1px solid var(--line);min-width:0}
+.home-news .news-image{align-self:flex-start;display:flex;width:fit-content;max-width:100%;height:clamp(200px,37svh,345px);min-width:min(100%,140px);aspect-ratio:auto;flex:none;background:transparent;border-radius:6px}
+.home-news .news-image img{display:block;width:auto;max-width:100%;height:100%;object-fit:contain;object-position:left center}
 .home-news .news-image .image-tag{font-size:9px;line-height:1.4;border-radius:99px;padding:6px 9px;background:#fff8ede8}
 .home-news .news-image>span:last-child{display:none}
-.home-news .news-card>div{display:flex;flex-direction:column;align-self:stretch;flex:1;padding-top:0}
+.home-news .news-card>div{display:flex;flex-direction:column;align-self:stretch;flex:1;padding-top:18px}
 .home-news .news-card>div>.eyebrow{font-size:10px;line-height:1.4;letter-spacing:.1em}
-.home-news .news-card h3{font-size:24px;line-height:1.35;letter-spacing:-.025em;min-height:0;margin:10px 0 14px}
+.home-news .news-card h3{font-size:clamp(18px,1.4vw,23px);line-height:1.35;letter-spacing:-.025em;min-height:0;margin:10px 0 14px}
 .home-news .news-card h3 button{-webkit-line-clamp:3;line-clamp:3}
-.home-news .news-excerpt{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;font-size:16px;line-height:1.6;min-height:0;margin:0 0 18px}
+.home-news .news-excerpt{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;font-size:16px;line-height:1.6;min-height:0;margin:0 0 12px}
 .home-news .news-card .text-link{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;margin-top:auto;padding:8px 0;border:0;font-size:14px}
 .news-rail-hint{display:none}
 /* Crisp SVG messenger marks use the same warm colours as the other controls. */
@@ -53,19 +53,18 @@ body[data-page=home] .home-news h2{font:500 clamp(48px,4.8vw,80px)/1.05 'Welcome
 .messenger-icon svg{width:22px;height:22px;fill:currentColor}
 .home-socials a:hover .messenger-icon{background:#8e5b3a;transform:translateY(-2px)}
 
-@media(min-width:1101px) and (max-height:820px){
+@media(min-width:1101px) and (max-height:900px){
  body[data-page=home] .home-news{padding-block:32px}
  body[data-page=home] .home-news .section-heading{margin-bottom:26px}
- .home-news .news-card h3{font-size:21px;min-height:0}
- .home-news .news-excerpt{display:none}
- .home-news .news-card{padding-bottom:18px}
+ .home-news .news-card h3{font-size:clamp(18px,1.5vw,21px);min-height:0}
+ .home-news .news-excerpt{-webkit-line-clamp:1;line-clamp:1}
 }
 @media(max-width:1100px){
  .guest-reviews{gap:32px;grid-auto-columns:calc((100% - 32px)/2)}
  .guest-reviews figcaption{align-items:start;flex-direction:column;gap:4px}
  .home-news .home-news-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#bca082 transparent;padding-bottom:12px}
  .home-news .news-card{scroll-snap-align:start}
- .home-news .news-card{display:flex;flex-direction:column;gap:0;padding:0;border:0}
+ .home-news .news-card{padding:0;border:0}
  .home-news .news-card>div{padding-top:20px}
  .news-rail-hint{display:block;color:var(--muted);font-size:13px;margin-top:10px}
  .home-news .news-card h3{font-size:20px;min-height:84px}
@@ -87,15 +86,15 @@ body[data-page=home] .home-news h2{font:500 clamp(48px,4.8vw,80px)/1.05 'Welcome
  .guest-review-platforms a{gap:8px;min-height:46px;padding:5px 12px 5px 7px;font-size:12px}
  .guest-review-platforms .review-platform-icon{width:30px;height:30px}
  .guest-review-platforms a>svg{width:20px;margin-left:0}
- body[data-page=home] .home-news{padding-block:32px}
+ body[data-page=home] .home-news{min-height:0;padding-block:32px}
  body[data-page=home] .home-news .section-heading{align-items:start;flex-direction:column;gap:14px;margin-bottom:22px}
  body[data-page=home] .home-news h2{font-size:clamp(43px,11.7vw,58px);line-height:1.03}
  .home-news h2 em{display:block}
  .home-news .section-heading>.text-link{padding:3px 0;font-size:14px}
  .home-news .home-news-grid{grid-auto-columns:85%;gap:22px}
- .home-news .news-image{height:clamp(150px,21svh,200px)}
+ .home-news .news-image{height:clamp(200px,33svh,285px)}
  .home-news .news-card h3{font-size:21px;min-height:88px;margin-block:10px 14px}
- .home-news .news-excerpt{-webkit-line-clamp:1;line-clamp:1;min-height:24px;margin-bottom:16px}
+ .home-news .news-excerpt{display:none}
  .home-contact-details .home-socials{gap:16px 18px}
  .home-contact-details .home-socials a{font-size:12px;gap:8px}
 }
