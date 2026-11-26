@@ -100,3 +100,26 @@ body[data-page=home] .home-news h2{font:500 clamp(48px,4.8vw,80px)/1.05 'Welcome
  .home-contact-details .home-socials a{font-size:12px;gap:8px}
 }
 @media(prefers-reduced-motion:reduce){.guest-reviews{scroll-behavior:auto}}
+
+/* Text keeps one scale; the unmodified source opens in the photo viewer. */
+.guest-reviews .guest-review-card{height:360px;padding:30px 32px;background:#fcfaf6;border:1px solid #d9cbb8;border-radius:12px;box-shadow:0 5px 18px #46301d05}
+.guest-reviews .guest-card-author{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:0;padding:0;border:0}
+.guest-card-author strong{font-size:18px;line-height:1.5;font-weight:600}
+.guest-reviews .guest-card-stars{font-size:17px;color:#b77b35;letter-spacing:2px}
+.guest-review-card blockquote{margin:23px 0 20px;font-size:18px;line-height:1.75;color:#51463b;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;overflow:hidden}
+.guest-card-original{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:6px 0;font-size:14px;color:#8d5937;margin-top:auto;align-self:stretch;text-align:left}
+.guest-card-original:hover{color:#332b24}
+.guest-card-original>span{font-size:21px}
+.guest-card-source{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-top:14px;padding-top:14px;border-top:1px solid #e5dcd0}
+.guest-card-source img{width:22px;height:22px;border-radius:5px}
+@media(max-width:700px){
+ .guest-reviews .guest-review-card{height:390px;padding:24px}
+ .guest-card-author strong{font-size:17px}
+ .guest-review-card blockquote{font-size:16px;line-height:1.75;-webkit-line-clamp:6;margin-top:20px}
+ .guest-card-original{font-size:13px}
+}
+
+.guest-reviews .guest-card-author{width:100%;flex-direction:row;text-align:left}
+.guest-reviews .guest-card-author .guest-card-stars{font-size:17px;color:#b77b35}
+.guest-review-card blockquote{flex-shrink:0;-webkit-line-clamp:4}
+@media(max-width:700px){.guest-review-card blockquote{-webkit-line-clamp:4}}

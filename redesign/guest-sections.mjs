@@ -1,20 +1,20 @@
 export function reviewsSection(){
  const source='https://2gis.ru/novoaltajsk/firm/563479234723565/tab/reviews';
  const reviews=[
-  ['review-01-sachkova.webp','О гостинице и кафе','Татьяна Сачкова'],
-  ['review-05-petrochenko.webp','О зале и гостеприимстве','Татьяна Петроченко'],
-  ['review-02-fillina.webp','Впечатления гостя','Оригинальный отзыв'],
-  ['review-03-upraviteleva.webp','Впечатления гостя','Оригинальный отзыв'],
-  ['review-04-verstak.webp','Впечатления гостя','Оригинальный отзыв'],
-  ['review-06-kobeleva.webp','Впечатления гостя','Оригинальный отзыв'],
-  ['review-07-cityspirit.webp','Впечатления гостя','Оригинальный отзыв'],
-  ['review-08-bugaeva.webp','Впечатления гостя','Оригинальный отзыв'],
-  ['review-09-chernysheva.webp','Впечатления гостя','Оригинальный отзыв']
+ ['review-01-sachkova.webp','Татьяна Сачкова','Останавливались проездом в гостинице — чистенько, номера новые, всё аккуратно. В кафе ночью можно перекусить, утром всё свежеприготовленное.'],
+ ['review-05-petrochenko.webp','Татьяна Петроченко','Красивый, стильный зал, очень вкусно готовят, замечательный персонал, чисто и уютно'],
+ ['review-02-fillina.webp','Наталья Филлина','Отличная гриль-вечеринка: вкусная еда, весёлая атмосфера и приветливый персонал. Всё для тёплого вечера с друзьями. Обязательно загляните!',true],
+ ['review-03-upraviteleva.webp','Любовь Управителева','Очень классное кафе. Удобно что есть детский уголок, в туалетах чисто, еда вкусная, цены — огонь, места много, парковка большая'],
+ ['review-04-verstak.webp','Наталья Верстак','Очень понравилась Облепиха! Чисто, вкусно, приветливый персонал. Рекомендую обязательно посетить, если будете рядом',true],
+ ['review-06-kobeleva.webp','Людмила Кобелева','Очень приятное место, хорошо отдохнули семьёй, всё необходимое есть, покушали и с новыми силами продолжаем своё путешествие. Низкий поклон хозяюшкам'],
+ ['review-07-cityspirit.webp','City spirit','Часто заезжаем с семьей. Достаточно большой выбор блюд (найдется и правильное питание), так же не могу не отметить очень вкусный шашлык, а на десерт советую взять торт и меренговый рулет, вкуснотище.',true],
+ ['review-08-bugaeva.webp','Татьяна Бугаева','Очень люблю облепиху, кушаем тут по дороге в Горный Алтай. Быстро и очень вкусно. Для придорожных кафе довольно демократичные цены.'],
+ ['review-09-chernysheva.webp','Юлия Чернышёва','НЕ проезжайте мимо! Обязательно зайдите. Позитивная атмосфера, вкусняшки на любой вкус и очень очень дружелюбный коллектив. Спасибо огромное, вы супер!']
  ];
  const arrow='<svg viewBox="0 0 32 24" aria-hidden="true"><path d="M3 12h25m-7-7 7 7-7 7"/></svg>';
  return `<section class="home-reviews section" id="reviews"><div class="guest-content wrap">
 <div class="guest-heading"><h2>Гости<br><em>об «Облепихе»</em></h2><p>Впечатления, которыми делятся<br>после поездок и встреч у нас</p></div>
-<div class="guest-carousel" data-review-carousel role="region" aria-roledescription="карусель" aria-label="Отзывы гостей"><div class="guest-reviews" data-review-track tabindex="0" aria-label="Лента отзывов, листайте стрелками или свайпом">${reviews.map(([file,topic,author],i)=>`<figure role="group" aria-roledescription="слайд" aria-label="Отзыв ${i+1} из ${reviews.length}"><a class="guest-review-image" href="${source}" target="_blank" rel="noopener" aria-label="${author} — отзыв в 2ГИС"><img src="../assets/reviews-final/${file}" alt="${author} — оригинальный отзыв из 2ГИС, ${i+1} из ${reviews.length}" loading="lazy" decoding="async"></a><figcaption><span>${topic}</span><span>${author} · 2ГИС</span></figcaption></figure>`).join('')}</div><div class="guest-carousel-controls"><span class="guest-review-count" data-review-count aria-live="polite">1–2 из ${reviews.length}</span><button type="button" data-review-step="-1" aria-label="Предыдущие отзывы" disabled>${arrow}</button><button type="button" data-review-step="1" aria-label="Следующие отзывы">${arrow}</button></div></div>
+<div class="guest-carousel" data-review-carousel role="region" aria-roledescription="карусель" aria-label="Отзывы гостей"><div class="guest-reviews" data-review-track tabindex="0" aria-label="Лента отзывов, листайте стрелками или свайпом">${reviews.map(([file,author,text,photo],i)=>`<figure class="guest-review-card" role="group" aria-roledescription="слайд" aria-label="Отзыв ${i+1} из ${reviews.length}"><figcaption class="guest-card-author"><strong>${author}</strong><span class="guest-card-stars" aria-label="5 из 5">★★★★★</span></figcaption><blockquote>${text}</blockquote><button class="guest-card-original" type="button" data-photo="../assets/reviews-final/${file}" data-gallery="guest-reviews" data-caption="${author} — оригинальный отзыв в 2ГИС">${photo?'Смотреть оригинал с фото':'Смотреть оригинал'}<span aria-hidden="true">↗</span></button><span class="guest-card-source"><img src="images/brands/2gis.png" width="22" height="22" alt="">Отзыв из 2ГИС</span></figure>`).join('')}</div><div class="guest-carousel-controls"><span class="guest-review-count" data-review-count aria-live="polite">1–2 из ${reviews.length}</span><button type="button" data-review-step="-1" aria-label="Предыдущие отзывы" disabled>${arrow}</button><button type="button" data-review-step="1" aria-label="Следующие отзывы">${arrow}</button></div></div>
 <div class="guest-reviews-footer"><div class="guest-more"><span>Больше отзывов о нас</span><svg viewBox="0 0 100 40" aria-hidden="true"><path d="M2 7C15 35 59 39 91 17m-17 1 20-4-5 18"/></svg></div><div class="guest-review-platforms"><a href="${source}" target="_blank" rel="noopener"><img class="review-platform-icon" src="images/brands/2gis.png" width="36" height="36" alt="" aria-hidden="true">2ГИС${arrow}</a><a href="https://yandex.ru/maps/org/oblepikha/24483320354/reviews/" target="_blank" rel="noopener"><img class="review-platform-icon" src="images/brands/yandex-maps.svg" width="36" height="36" alt="" aria-hidden="true">Яндекс Карты${arrow}</a></div></div>
 </div></section>`;
 }
