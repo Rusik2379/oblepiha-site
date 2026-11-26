@@ -8,6 +8,7 @@
   const heroTrials={facade:['images/hero-facade-v1.png','Фасад гостиницы «Облепиха» — вариант обработки', '66% 50%'],evening:['images/hero-evening-v1.png','Территория «Облепихи» на закате — вариант обработки','50% 50%'],original:['../assets/hero.webp','Исходная фотография территории «Облепихи»','50% 50%']};
   const heroTrial=heroTrials[params.get('hero')];
   if(heroTrial && $('.hero-photo')) {
+    $('.hero-photo').closest('picture')?.querySelector('source')?.remove();
     $('.hero-photo').src=heroTrial[0];
     $('.hero-photo').alt=heroTrial[1];
     $('.hero-photo').style.objectPosition=heroTrial[2];
@@ -213,7 +214,7 @@
     });
     $$('[data-room-filter]').forEach(b=>{const active=b.dataset.roomFilter===filter;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
     const more=$('#show-rooms');
-    if(more){more.hidden=visible<=3;more.innerHTML=expanded?'Свернуть категории <span aria-hidden="true">↑</span>':`Все ${visible} категорий <span aria-hidden="true">↓</span>`;}
+    if(more){more.hidden=visible<=3;more.innerHTML=expanded?'Свернуть категории <span aria-hidden="true" class="ui-arrow ui-arrow--up"></span>':`Все ${visible} категорий <span aria-hidden="true" class="ui-arrow ui-arrow--down"></span>`;}
   }
   if($('#show-rooms')){
     filterRooms(params.get('guests')==='3'?'3':'all',params.has('arrival'));
@@ -226,7 +227,7 @@
     const trigger=e.target.closest('[data-room]');if(!trigger)return;
     const room=rooms.find(r=>r.id===trigger.dataset.room);if(!room)return;
     activeRoom=room;roomPhoto=0;
-    $('#room-dialog-content').innerHTML=`<article class="room-detail"><div class="room-detail-media"><img id="room-detail-photo" src="../assets/${escape(room.photos[0])}" alt="${escape(room.name)}"><div class="room-gallery-controls"><button data-room-step="-1" aria-label="Предыдущее фото">←</button><span id="room-photo-count">1 / ${room.photos.length}</span><button data-room-step="1" aria-label="Следующее фото">→</button></div></div><div class="room-detail-copy"><span class="eyebrow">ВАШЕ МЕСТО ДЛЯ ОТДЫХА</span><h2>${escape(room.name)}</h2><ul>${room.facts.map(f=>`<li>${escape(f)}</li>`).join('')}<li>${room.breakfast?'Завтрак в стандартном тарифе':'Тариф без завтрака'}</li></ul><p class="room-detail-description">${escape(room.description)}</p><p class="price">от ${room.price.toLocaleString('ru-RU')} ₽</p><p class="muted">Окончательная цена и наличие на выбранные даты — при бронировании.</p><a class="button" href="index.html#booking" data-tl-booking-open="true" data-tl-dynamic data-tl-room="${escape(room.id)}">Забронировать номер <span aria-hidden="true">↗</span></a></div></article>`;
+    $('#room-dialog-content').innerHTML=`<article class="room-detail"><div class="room-detail-media"><img id="room-detail-photo" src="../assets/${escape(room.photos[0])}" alt="${escape(room.name)}"><div class="room-gallery-controls"><button data-room-step="-1" aria-label="Предыдущее фото" class="ui-arrow ui-arrow--left"></button><span id="room-photo-count">1 / ${room.photos.length}</span><button data-room-step="1" aria-label="Следующее фото" class="ui-arrow ui-arrow--right"></button></div></div><div class="room-detail-copy"><span class="eyebrow">ВАШЕ МЕСТО ДЛЯ ОТДЫХА</span><h2>${escape(room.name)}</h2><ul>${room.facts.map(f=>`<li>${escape(f)}</li>`).join('')}<li>${room.breakfast?'Завтрак в стандартном тарифе':'Тариф без завтрака'}</li></ul><p class="room-detail-description">${escape(room.description)}</p><p class="price">от ${room.price.toLocaleString('ru-RU')} ₽</p><p class="muted">Окончательная цена и наличие на выбранные даты — при бронировании.</p><a class="button" href="index.html#booking" data-tl-booking-open="true" data-tl-dynamic data-tl-room="${escape(room.id)}">Забронировать номер <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a></div></article>`;
     openDialog($('#room-dialog'));
   });
   document.addEventListener('click',e=>{const b=e.target.closest('[data-room-step]');if(b&&activeRoom){roomPhoto=(roomPhoto+Number(b.dataset.roomStep)+activeRoom.photos.length)%activeRoom.photos.length;renderRoomPhoto();}});

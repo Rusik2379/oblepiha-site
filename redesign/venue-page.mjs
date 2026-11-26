@@ -43,8 +43,8 @@ export function venuePage(key, service) {
           <h1 id="venue-title">${copy.title} <em>${copy.accent}</em></h1>
           <p>${copy.description}</p>
           <div class="venue-page-actions">
-            <a class="venue-page-button" href="${call}">${service.cta} <span aria-hidden="true">↗</span></a>
-            <a class="venue-page-link" href="#venue-gallery">Смотреть фото <span aria-hidden="true">↓</span></a>
+            <a class="venue-page-button" href="${call}">${service.cta} <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
+            <a class="venue-page-link" href="#venue-gallery">Смотреть фото <span aria-hidden="true" class="ui-arrow ui-arrow--down"></span></a>
           </div>
         </div>
         <img class="venue-hero-image" src="../assets/${heroPhoto}" alt="${service.name} в комплексе «Облепиха»" fetchpriority="high" decoding="async">
@@ -65,7 +65,7 @@ export function venuePage(key, service) {
             const caption = copy.gallery[index];
             return `<figure>
               <button type="button" data-gallery="venue" data-photo="${src}" data-caption="${caption}" aria-label="Увеличить фото: ${caption}">
-                <img src="${src}" alt="${caption}" loading="lazy" decoding="async"><span aria-hidden="true">↗</span>
+                <img src="${src}" alt="${caption}" loading="lazy" decoding="async"><span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span>
               </button>
               <figcaption>${caption}</figcaption>
             </figure>`;
@@ -78,11 +78,11 @@ export function venuePage(key, service) {
         <h2 id="venue-visit-title">Как <em>приехать</em></h2>
         <address>Новоалтайск, ул. Дорожная, 13</address>
         <p>${copy.visit}</p>
-${key === 'cafe' ? '<a class="venue-page-link" href="grill.html">Гриль-бар <span aria-hidden="true">↗</span></a>' : ''}
+${key === 'cafe' ? '<a class="venue-page-link" href="grill.html">Гриль-бар <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>' : ''}
       </div>
       <div class="venue-page-actions">
-        <a class="venue-page-button" href="${call}">${service.phoneText} <span aria-hidden="true">↗</span></a>
-        <a class="venue-page-link" href="https://yandex.ru/maps/org/oblepikha/24483320354/" target="_blank" rel="noopener">Построить маршрут <span aria-hidden="true">↗</span></a>
+        <a class="venue-page-button" href="${call}">${service.phoneText} <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
+        <a class="venue-page-link" href="https://yandex.ru/maps/org/oblepikha/24483320354/" target="_blank" rel="noopener">Построить маршрут <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
       </div>
     </section>
   </div>`;

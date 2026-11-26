@@ -14,8 +14,8 @@ export function saunaPage({ phone, phoneText }) {
           <h1 id="sauna-title">Финская сауна <em>с джакузи</em></h1>
           <p>Финская парная, джакузи с гидромассажем и отдельная комната отдыха для вашей компании</p>
           <div class="sauna-page-actions">
-            <a class="sauna-page-button" href="${call}">Записаться в сауну <span aria-hidden="true">↗</span></a>
-            <a class="sauna-page-link" href="#sauna-prices">Посмотреть цены <span aria-hidden="true">↓</span></a>
+            <a class="sauna-page-button" href="${call}">Записаться в сауну <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
+            <a class="sauna-page-link" href="#sauna-prices">Посмотреть цены <span aria-hidden="true" class="ui-arrow ui-arrow--down"></span></a>
           </div>
         </div>
         <img class="sauna-hero-image" src="../assets/sauna-page/slide-01.webp" alt="Финская парная комплекса «Облепиха»" width="1920" height="1108" fetchpriority="high" decoding="async">
@@ -44,7 +44,7 @@ export function saunaPage({ phone, phoneText }) {
             return `<figure>
               <button type="button" data-gallery="sauna-interiors" data-photo="${src}" data-caption="${caption}" aria-label="Увеличить фото: ${caption}">
                 <img src="${src}" alt="${alt}" width="1920" height="1108" loading="lazy" decoding="async">
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span>
               </button>
               <figcaption>${caption}</figcaption>
             </figure>`;
@@ -57,11 +57,11 @@ export function saunaPage({ phone, phoneText }) {
         <h2 id="sauna-visit-title">Как <em>приехать</em></h2>
         <address>Новоалтайск, ул. Дорожная, 13</address>
         <p>Душ и стирка с сушкой доступны без проживания</p>
-        <a class="sauna-page-link" href="index.html#shower-heading">О душе и стирке <span aria-hidden="true">↗</span></a>
+        <a class="sauna-page-link" href="index.html#shower-heading">О душе и стирке <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
       </div>
       <div class="sauna-page-actions">
-        <a class="sauna-page-button" href="${call}">${phoneText} <span aria-hidden="true">↗</span></a>
-        <a class="sauna-page-link" href="https://yandex.ru/maps/org/oblepikha/24483320354/" target="_blank" rel="noopener">Построить маршрут <span aria-hidden="true">↗</span></a>
+        <a class="sauna-page-button" href="${call}">${phoneText} <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
+        <a class="sauna-page-link" href="https://yandex.ru/maps/org/oblepikha/24483320354/" target="_blank" rel="noopener">Построить маршрут <span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span></a>
       </div>
     </section>
   </div>`;

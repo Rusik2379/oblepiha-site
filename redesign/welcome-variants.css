@@ -1,6 +1,6 @@
-@font-face{font-family:Welcome Cormorant;src:url('cormorant-garamond.ttf') format('truetype');font-style:normal;font-weight:300 700;font-display:swap}
-@font-face{font-family:Welcome Cormorant;src:url('cormorant-garamond-italic.ttf') format('truetype');font-style:italic;font-weight:300 700;font-display:swap}
-@font-face{font-family:Welcome Manrope;src:url('manrope.ttf') format('truetype');font-style:normal;font-weight:200 800;font-display:swap}
+@font-face{font-family:Welcome Cormorant;src:url('cormorant-garamond.woff2') format('woff2');font-style:normal;font-weight:300 700;font-display:swap}
+@font-face{font-family:Welcome Cormorant;src:url('cormorant-garamond-italic.woff2') format('woff2');font-style:italic;font-weight:300 700;font-display:swap}
+@font-face{font-family:Welcome Manrope;src:url('manrope.woff2') format('woff2');font-style:normal;font-weight:200 800;font-display:swap}
 
 body[data-welcome-variant] .hero{height:auto;min-height:max(760px,100svh)}
 body[data-welcome-variant] .hero-visual::after{background:linear-gradient(90deg,#201b17a8 0%,#201b1736 58%,#201b1705 100%),linear-gradient(0deg,#201b1773,transparent 45%,#201b1730)}
