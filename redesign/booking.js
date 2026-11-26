@@ -3,6 +3,14 @@
   const queue = [['setContext', 'TL-INT-oblepiha-22-ru_2026-09-30', 'ru']];
   if (document.getElementById('tl-search-form')) {
     queue.push(['embed', 'search-form', { container: 'tl-search-form' }]);
+    const booking = document.getElementById('booking');
+    if (booking && 'IntersectionObserver' in w) {
+      // Keep the floating chat off the mobile form while the guest can interact with it.
+      const observer = new IntersectionObserver(([entry]) => {
+        document.body.classList.toggle('booking-in-view', entry.isIntersecting);
+      });
+      observer.observe(booking);
+    }
   }
   const integration = (w.travelline = w.travelline || {}).integration =
     w.travelline.integration || {};
