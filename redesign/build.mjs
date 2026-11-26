@@ -1,4 +1,5 @@
 import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {homePage} from './homepage.mjs';
 import {saunaPage} from './sauna-page.mjs';
@@ -8,6 +9,10 @@ import {introSection} from './intro-variants.mjs';
 const out=import.meta.dirname, root=resolve(out,'..');
 const A='../assets/';
 const selectedIntro='editorial';
+const homeStyles=['styles','footer','hero-welcome','homepage','sauna-services','events','guest-sections','welcome-variants','intro-variants']
+ .map(name=>readFileSync(resolve(out,name+'.css'),'utf8')).join('\n');
+const homeStyleVersion=createHash('sha256').update(homeStyles).digest('hex').slice(0,10);
+writeFileSync(resolve(out,'home-bundle.css'),homeStyles);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const arrow='<span aria-hidden="true" class="ui-arrow ui-arrow--diagonal"></span>';
 const img=(src,alt,cls='',eager=false)=>`<img src="${A+src}" alt="${esc(alt)}" class="${cls}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
@@ -63,7 +68,7 @@ function footer(){
  </div></footer>`;
 }
 function dialogs(){return `<dialog class="room-dialog" id="room-dialog" aria-label="Информация о номере"><button class="dialog-close" data-close aria-label="Закрыть окно">×</button><div id="room-dialog-content"></div></dialog><dialog class="lightbox" id="lightbox" aria-label="Просмотр фотографии"><button class="dialog-close" data-close aria-label="Закрыть фотографию">×</button><button class="ui-arrow ui-arrow--left gallery-arrow" data-photo-step="-1" aria-label="Предыдущее фото"></button><figure><img id="lightbox-photo" alt=""><figcaption id="lightbox-caption"></figcaption></figure><button class="ui-arrow ui-arrow--right gallery-arrow" data-photo-step="1" aria-label="Следующее фото"></button></dialog><dialog class="article-dialog" id="article-dialog" aria-label="Новость"><button class="dialog-close" data-close aria-label="Закрыть новость">×</button><div id="article-content"></div></dialog>`;}
-function shell(title,body,key='home',{welcomeVariant='classic',introVariant=selectedIntro}={}){return `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#29251f"><title>${key==='home'?'Гостиница «Облепиха» в Новоалтайске — официальный сайт':esc(title)+' — Облепиха'}</title><link rel="icon" href="../favicon.ico"><link rel="preconnect" href="https://ru-ibe.tlintegration.ru">${key==='home'?'<link rel="preload" as="script" href="https://ru-ibe.tlintegration.ru/integration/loader.js">':''}<link rel="stylesheet" href="styles.css?v=20261126-speed"><link rel="stylesheet" href="footer.css?v=20261126-speed">${(key==='sauna'||hasVenuePage(key))?'<link rel="stylesheet" href="sauna-page.css?v=20261126-speed">':''}${key==='home'?'<link rel="stylesheet" href="hero-welcome.css?v=20261117-2"><link rel="stylesheet" href="homepage.css?v=20261126-contacts"><link rel="stylesheet" href="sauna-services.css?v=20261120-1"><link rel="stylesheet" href="events.css?v=20261123-1"><link rel="stylesheet" href="guest-sections.css?v=20261126-4"><link rel="stylesheet" href="welcome-variants.css?v=20261126-speed">'+(introVariant?'<link rel="stylesheet" href="intro-variants.css?v=20261120-1">':''):''}<script src="data.js?v=20261117-3" defer></script><script src="app.js?v=20261126-icons" defer></script><script src="booking.js?v=${key==='home'?'20261126-mobile':'20261120-2'}" defer></script></head><body data-page="${key}"${key==='home'?' data-welcome-variant="'+welcomeVariant+'"':''}>${header()}<main id="main">${body}</main>${footer()}<div hidden aria-hidden="true">${rooms.map(r=>`<a id="tl-room-${r.id}" href="index.html#booking" data-tl-booking-open="true" data-tl-room="${r.id}">Забронировать ${esc(r.name)}</a>`).join('')}</div>${dialogs()}</body></html>`;}
+function shell(title,body,key='home',{welcomeVariant='classic'}={}){return `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#29251f"><title>${key==='home'?'Гостиница «Облепиха» в Новоалтайске — официальный сайт':esc(title)+' — Облепиха'}</title><link rel="icon" href="../favicon.ico"><link rel="preconnect" href="https://ru-ibe.tlintegration.ru">${key==='home'?'<link rel="preload" as="script" href="https://ru-ibe.tlintegration.ru/integration/loader.js">':''}${key==='home'?'<link rel="stylesheet" href="home-bundle.css?v='+homeStyleVersion+'">':'<link rel="stylesheet" href="styles.css?v=20261126-speed"><link rel="stylesheet" href="footer.css?v=20261126-speed">'}${(key==='sauna'||hasVenuePage(key))?'<link rel="stylesheet" href="sauna-page.css?v=20261126-speed">':''}<script src="data.js?v=20261117-3" defer></script><script src="app.js?v=${key==='home'?'20261126-carousel':'20261126-icons'}" defer></script><script src="booking.js?v=${key==='home'?'20261126-mobile':'20261120-2'}" defer></script></head><body data-page="${key}"${key==='home'?' data-welcome-variant="'+welcomeVariant+'"':''}>${header()}<main id="main">${body}</main>${footer()}<div hidden aria-hidden="true">${rooms.map(r=>`<a id="tl-room-${r.id}" href="index.html#booking" data-tl-booking-open="true" data-tl-room="${r.id}">Забронировать ${esc(r.name)}</a>`).join('')}</div>${dialogs()}</body></html>`;}
 const label=(n,text)=>`<div class="section-label"><span>${n}</span>${text}</div>`;
 function roomCard(r){return `<article class="room-card" data-room-card data-guests="${r.guests}"><button class="room-image" data-room="${r.id}" aria-label="Посмотреть номер ${esc(r.name)}">${img(r.photos[0],r.name)}<span class="image-tag">${r.area} м² · ${r.guests} гостя</span><span class="ui-arrow ui-arrow--diagonal image-arrow"></span></button><div class="room-card-info"><h3><button data-room="${r.id}">${r.name}</button></h3><span class="room-price">от ${r.price.toLocaleString('ru-RU')} ₽</span></div><div class="room-card-bottom"><span>Завтрак включён</span><button class="text-link" data-room="${r.id}">Подробнее ${arrow}</button></div></article>`;}
 function newsCards(limit=posts.length){return posts.slice(0,limit).map(p=>{const photo=p.image.startsWith('images/')?'<img src="'+esc(p.image)+'" alt="'+esc(p.title)+'" loading="lazy" decoding="async">':img(p.image.replace(/^\/?assets\//,''),p.title); const tag=p.id==='winter-tea'?'С 1 ДЕКАБРЯ 2026':p.pinned?'ЗАКРЕПЛЕНО':new Date(p.publishedAt).toLocaleDateString('ru-RU'); const excerpt=p.text.split('\n').filter(Boolean)[0];return '<article class="news-card"><button class="news-image" data-article="'+esc(p.id)+'" aria-label="'+esc(p.title)+'">'+photo+'<span class="image-tag">'+tag+'</span>'+arrow+'</button><div><span class="eyebrow">'+(p.kind==='promotion'?'ПРЕДЛОЖЕНИЕ':'НОВОСТЬ')+'</span><h3><button data-article="'+esc(p.id)+'">'+esc(p.title)+'</button></h3><p class="news-excerpt">'+esc(excerpt)+'</p><button class="text-link" data-article="'+esc(p.id)+'">Читать подробнее '+arrow+'</button></div></article>';}).join('');}
@@ -72,7 +77,7 @@ function home(introVariant=selectedIntro){
  if(introVariant){
   const start=body.indexOf('<section class="hotel-intro'),end=body.indexOf('<section class="home-rooms');
   if(start<0||end<start)throw new Error('Intro section markers missing');
-  body=body.slice(0,start)+introSection(introVariant,{img,arrow})+'\n'+body.slice(end);
+  body=body.slice(0,start)+introSection(introVariant,{arrow})+'\n'+body.slice(end);
  }
  return body;
 }
@@ -97,12 +102,12 @@ for(const [variant,name,other,otherName] of [
 ]){
  const bar='<aside class="welcome-comparisonbar" aria-label="Сравнение второго раздела"><span>Второй раздел · '+name+'</span><nav><a href="intro-'+other+'.html#about">Вариант '+otherName+'</a><a href="intro-options.html">Оба варианта подряд</a><a href="index.html#about">Текущий раздел</a></nav></aside>';
  const body=home(variant).replace('<section class="home-rooms',bar+'<section class="home-rooms');
- writeFileSync(resolve(out,'intro-'+variant+'.html'),shell('Гостиничный комплекс в Новоалтайске',body,'home',{introVariant:variant}));
+ writeFileSync(resolve(out,'intro-'+variant+'.html'),shell('Гостиничный комплекс в Новоалтайске',body,'home'));
 }
 const introOptionsHead=readFileSync(resolve(out,'intro-options-template.html'),'utf8');
 const introOptions=introOptionsHead
- .replace('<!-- EDITORIAL -->',introSection('editorial',{img,arrow}).replace('id="about"','id="preview-editorial"').replace('href="#contacts"','href="intro-editorial.html#contacts"'))
- .replace('<!-- PANORAMA -->',introSection('panorama',{img,arrow}).replace('id="about"','id="preview-panorama"').replace('href="#contacts"','href="intro-panorama.html#contacts"'));
+ .replace('<!-- EDITORIAL -->',introSection('editorial',{arrow}).replace('id="about"','id="preview-editorial"').replace('href="#contacts"','href="intro-editorial.html#contacts"'))
+ .replace('<!-- PANORAMA -->',introSection('panorama',{arrow}).replace('id="about"','id="preview-panorama"').replace('href="#contacts"','href="intro-panorama.html#contacts"'));
 writeFileSync(resolve(out,'intro-options.html'),introOptions);
 
 for(const [key,s] of Object.entries(services))writeFileSync(resolve(out,key+'.html'),shell(key==='sauna'?'Финская сауна с джакузи в Новоалтайске':s.name,key==='sauna'?saunaPage(s):hasVenuePage(key)?venuePage(key,s):servicePage(s,key),key));

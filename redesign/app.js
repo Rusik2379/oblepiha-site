@@ -180,7 +180,6 @@
         delete carousel.dataset.animating;
       }
     }
-    preloadNeighbours();
     $$('[data-category-step]',carousel).forEach(button=>{
       button.hidden=photos.length<2;
       button.addEventListener('click',()=>showPhoto(Number(button.dataset.categoryStep)));

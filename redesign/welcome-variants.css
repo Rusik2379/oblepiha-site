@@ -54,8 +54,8 @@ body[data-welcome-variant] .hero-bottom{animation-delay:.18s}
  body[data-welcome-variant] .hero .hero-scroll{margin-top:22px;font-size:7px;gap:22px}
  body[data-welcome-variant] .hero .booking-bar--travelline{padding:12px 8px;margin-bottom:24px;border-radius:10px}
  body[data-welcome-variant] .hero-actions{gap:18px;margin-top:16px}
- .booking-in-view .x-ai-chat-button-widget-container,
- .booking-in-view .x-ai-chat-welcome-message-container{visibility:hidden!important}
+ .x-ai-chat-welcome-message-container{display:none!important}
+ .booking-in-view .x-ai-chat-button-widget-container{visibility:hidden!important}
  .welcome-comparisonbar{padding-block:18px;font-size:11px}
  .welcome-comparisonbar nav{gap:18px}
 }
